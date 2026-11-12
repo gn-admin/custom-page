@@ -757,3 +757,45 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
   .post-facts-grid { grid-template-columns: 1fr; }
   .post-sheet .post-body { padding: 1rem; }
 }
+/* Post ficha compact: reduce scroll */
+.post-sheet--ficha { gap: 1rem; }
+.post-sheet--ficha .post-section { gap: .55rem; }
+.section-head--compact { margin-bottom: .35rem !important; }
+.section-head--compact h2 { font-size: 1.15rem; margin: 0; }
+.section-head--compact p { margin: 0; }
+.post-sheet--ficha .post-hero { padding: 1rem; gap: 1rem; border-radius: 20px; }
+.post-sheet--ficha .post-hero-copy { gap: .4rem; }
+.post-sheet--ficha .post-hero-copy h1 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+.post-sheet--ficha .post-hero-copy .lead { font-size: .98rem; line-height: 1.55; }
+.post-sheet--ficha .post-hero-copy .meta { font-size: .9rem; }
+.post-sheet--ficha .post-hero-media img { max-height: 300px; aspect-ratio: 4 / 3; }
+.post-sheet--ficha .post-facts-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .6rem; }
+.post-sheet--ficha .post-fact-card { padding: .75rem .8rem; gap: .55rem; align-items: center; display: grid; grid-template-columns: 44px 1fr; text-align: left; }
+.post-sheet--ficha .post-fact-card .feature-icon { width: 44px; height: 44px; border-radius: 14px; margin: 0; }
+.post-sheet--ficha .post-fact-card .feature-icon svg { width: 22px; height: 22px; }
+.post-sheet--ficha .post-fact-copy h3 { font-size: .9rem; line-height: 1.2; margin: 0 0 .1rem; }
+.post-sheet--ficha .post-fact-copy p { font-size: .88rem; line-height: 1.35; }
+.post-sheet--ficha .post-body { padding: .95rem 1rem; font-size: .98rem; }
+.post-sheet--ficha .post-carousel { padding: .55rem; }
+.post-sheet--ficha .post-slide img { aspect-ratio: 16 / 10; max-height: 320px; }
+.post-sheet--ficha .post-video-frame { aspect-ratio: 16 / 9; max-height: 320px; }
+.post-sheet--ficha .post-video-note { font-size: .86rem; margin-top: .4rem; }
+.post-media-grid { display: grid; gap: 1rem; align-items: start; }
+@media (min-width: 900px) {
+  .post-sheet--ficha { gap: 1.1rem; }
+  .post-sheet--ficha .post-hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); padding: 1.1rem 1.2rem; }
+  .post-sheet--ficha .post-hero-media img { max-height: 280px; }
+  .post-media-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .post-media-grid .post-section { margin: 0; }
+}
+@media (max-width: 719px) {
+  .post-sheet--ficha .post-facts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-sheet--ficha .post-fact-card { grid-template-columns: 1fr; justify-items: start; gap: .4rem; }
+  .post-sheet--ficha .post-fact-card .feature-icon { width: 40px; height: 40px; }
+  .post-sheet--ficha .post-hero-media img { max-height: 240px; }
+  .post-sheet--ficha .post-slide img { aspect-ratio: 4 / 3; max-height: 260px; }
+}
+@media (max-width: 420px) {
+  .post-sheet--ficha .post-facts-grid { grid-template-columns: 1fr; }
+  .post-sheet--ficha .post-fact-card { grid-template-columns: 44px 1fr; }
+}

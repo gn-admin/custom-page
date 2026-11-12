@@ -46,13 +46,13 @@
   function renderIcons(pub, post) {
     var icons = pub && Array.isArray(pub.icons) ? pub.icons : [];
     if (!icons.length) return '';
-    return '<section class="post-section post-facts" aria-label="Datos destacados">' +
-      '<div class="section-head"><p class="eyebrow">Ficha</p><h2>Datos destacados</h2></div>' +
+    return '<section class="post-section post-facts post-section--compact" aria-label="Datos destacados">' +
+      '<div class="section-head section-head--compact"><h2>Datos destacados</h2></div>' +
       '<div class="post-facts-grid">' + icons.map(function (it) {
         var meta = svgFor(it.label || '', it.icon || '', post.title || '', post.category || '');
         return '<article class="feature-card ' + meta.tone + ' post-fact-card">' +
           '<div class="feature-icon" aria-hidden="true">' + meta.svg + '</div>' +
-          '<h3>' + esc(it.label || '') + '</h3><p>' + esc(it.value || '') + '</p></article>';
+          '<div class="post-fact-copy"><h3>' + esc(it.label || '') + '</h3><p>' + esc(it.value || '') + '</p></div></article>';
       }).join('') + '</div></section>';
   }
 
@@ -71,8 +71,8 @@
       return '<button type="button" class="post-carousel-dot' + (i===0?' active':'') + '" data-index="' + i + '" aria-label="Imagen ' + (i+1) + '"' + (i===0?' aria-current="true"':'') + '></button>';
     }).join('') + '</div>' : '';
     var controls = g.length > 1 ? '<div class="post-carousel-controls"><button type="button" class="post-carousel-btn" data-dir="-1" aria-label="Imagen anterior">‹</button><button type="button" class="post-carousel-btn" data-dir="1" aria-label="Imagen siguiente">›</button></div>' : '';
-    return '<section class="post-section" aria-label="Galería de imágenes">' +
-      '<div class="section-head"><p class="eyebrow">Galería</p><h2>Imágenes</h2><p>Conoce mejor su historia en imágenes.</p></div>' +
+    return '<section class="post-section post-media-block" aria-label="Galería de imágenes">' +
+      '<div class="section-head section-head--compact"><h2>Galería</h2></div>' +
       '<div class="post-carousel" data-post-carousel><div class="post-carousel-viewport"><div class="post-carousel-track">' + slides + '</div></div>' + controls + dots + '</div>' +
     '</section>';
   }
@@ -83,8 +83,8 @@
     var safeUrl = esc(v.url);
     var title = esc(v.title || 'Vídeo de la publicación');
     var note = v.note ? '<p class="post-video-note">' + esc(v.note) + '</p>' : '';
-    return '<section class="post-section" aria-label="Vídeo">' +
-      '<div class="section-head"><p class="eyebrow">Vídeo</p><h2>' + esc(v.title || 'Vídeo') + '</h2><p>Contenido en vídeo relacionado con esta ficha.</p></div>' +
+    return '<section class="post-section post-media-block" aria-label="Vídeo">' +
+      '<div class="section-head section-head--compact"><h2>Vídeo</h2></div>' +
       '<div class="post-video"><div class="post-video-frame"><iframe src="' + safeUrl + '" title="' + title + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>' + note + '</div>' +
     '</section>';
   }
@@ -155,15 +155,21 @@
         '</header>'
       );
 
+      var mediaBlocks = '';
+      if (ficha && pub && pub.gallery && pub.video) {
+        mediaBlocks = '<div class="post-media-grid">' + renderGallery(pub) + renderVideo(pub) + '</div>';
+      } else {
+        mediaBlocks = renderGallery(pub) + renderVideo(pub);
+      }
+
       root.innerHTML =
         '<a class="card-link post-back" href="' + esc(back.href) + '">← ' + esc(back.label) + '</a>' +
         '<article class="post-sheet ' + (ficha ? 'post-sheet--ficha' : 'post-sheet--story') + '">' +
           hero +
           renderIcons(pub, post) +
           (tags.length ? '<div class="card-tags post-tags">' + tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
-          '<section class="post-section"><div class="section-head"><p class="eyebrow">Descripción</p><h2>Sobre este caso</h2></div><div class="post-body">' + content + '</div></section>' +
-          renderGallery(pub) +
-          renderVideo(pub) +
+          '<section class="post-section post-section--desc"><div class="section-head section-head--compact"><h2>Sobre este caso</h2></div><div class="post-body">' + content + '</div></section>' +
+          mediaBlocks +
           '<div class="actions actions-center post-actions"><a class="btn btn-primary" href="' + esc(cta.url) + '">' + esc(cta.label) + '</a> <a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
         '</article>';
       initCarousel(root);
