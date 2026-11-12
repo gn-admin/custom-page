@@ -40,7 +40,8 @@
 
   function isFichaPost(post) {
     var cat = String(post.category || '');
-    return !!post.publication || cat === 'Gatos en adopción' || cat === 'Perros en adopción' || cat === 'Acogida' || cat === 'Acogidas' || cat === 'Adoptados' || cat === 'Caso externo';
+    if (cat === 'Adoptados') return false; // finales felices: formato más blog/historia
+    return !!post.publication || cat === 'Gatos en adopción' || cat === 'Perros en adopción' || cat === 'Acogida' || cat === 'Acogidas' || cat === 'Caso externo';
   }
 
   function renderIcons(pub, post) {
@@ -161,11 +162,11 @@
           '<div class="post-hero-media"><img src="' + esc(image) + '" alt="' + esc(post.imageAlt || post.title) + '" loading="eager" decoding="async"></div>' +
         '</header>'
       ) : (
-        '<header class="post-header-simple">' +
+        '<header class="post-header-simple post-header-story">' +
           '<p class="eyebrow">' + esc(post.category || 'Historia') + '</p>' +
           '<h1>' + esc(post.title) + '</h1>' +
+          (post.excerpt ? '<p class="lead">' + esc(post.excerpt) + '</p>' : '') +
           (metaLine ? '<p class="meta">' + esc(metaLine) + '</p>' : '') +
-          '<img src="' + esc(image) + '" alt="' + esc(post.imageAlt || post.title) + '" loading="lazy" decoding="async">' +
         '</header>'
       );
 
@@ -178,13 +179,17 @@
         mediaBlocks = renderGallery(pub) + renderVideo(pub);
       }
 
+      var descHead = ficha
+        ? '<div class="section-head section-head--compact"><h2>Sobre este caso</h2></div>'
+        : '<div class="section-head section-head--compact"><h2>La historia</h2></div>';
+
       root.innerHTML =
         '<a class="card-link post-back" href="' + esc(back.href) + '">← ' + esc(back.label) + '</a>' +
         '<article class="post-sheet ' + (ficha ? 'post-sheet--ficha' : 'post-sheet--story') + '">' +
           hero +
           renderIcons(pub, post) +
           (tags.length ? '<div class="card-tags post-tags">' + tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
-          '<section class="post-section post-section--desc"><div class="section-head section-head--compact"><h2>Sobre este caso</h2></div><div class="post-body">' + content + '</div></section>' +
+          '<section class="post-section post-section--desc">' + descHead + '<div class="post-body">' + content + '</div></section>' +
           mediaBlocks +
           '<div class="actions actions-center post-actions"><a class="btn btn-primary" href="' + esc(cta.url) + '">' + esc(cta.label) + '</a> <a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
         '</article>';

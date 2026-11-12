@@ -809,3 +809,15 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
 @media (max-width: 719px) {
   .post-videos--multi { gap: .7rem; }
 }
+/* Adoptados/finales felices: formato más blog/historia */
+.post-sheet--story { gap: 1.1rem; max-width: 860px; margin: 0 auto; }
+.post-header-story { display: grid; gap: .45rem; }
+.post-header-story h1 { margin: 0; font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.15; }
+.post-header-story .lead { margin: 0; font-size: 1.05rem; color: var(--ink-soft); }
+.post-header-story .meta { margin: 0; }
+.post-sheet--story .post-facts-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.post-sheet--story .post-body { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 1.15rem 1.25rem; }
+.post-sheet--story .post-carousel, .post-sheet--story .post-video { max-width: 100%; }
+@media (max-width: 719px) {
+  .post-sheet--story .post-body { padding: 1rem; }
+}
