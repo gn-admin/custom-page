@@ -252,20 +252,23 @@
       modal.setAttribute('aria-hidden','true');
       modal.innerHTML = ''+
         '<div class="form-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="nebakFormTitle">'+
-          '<button type="button" class="form-modal-close" data-form-close aria-label="Cerrar formulario">&times;</button>'+
-          '<p class="eyebrow" id="nebakFormConcept">Formulario</p>'+
-          '<h2 id="nebakFormTitle">Contacto</h2>'+
-          '<p id="nebakFormIntro" class="form-modal-intro"></p>'+
-          '<form id="nebakModalForm" novalidate>'+
-            '<input type="hidden" name="form_type" id="nebakFormType">'+
-            '<input type="hidden" name="concepto" id="nebakFormConceptValue">'+
-            '<input type="hidden" name="origen_pagina" id="nebakFormPage">'+
-            '<input type="hidden" name="animal_slug" id="nebakAnimalSlug">'+
-            '<div class="form-modal-grid" id="nebakFormFields"></div>'+
-            '<div class="actions" style="margin-top:1rem"><button class="btn btn-primary" type="submit">Enviar</button><button class="btn btn-secondary" type="button" data-form-close>Cancelar</button></div>'+
-            '<p class="form-success" id="nebakFormSuccess" role="status"></p>'+
-            '<p class="form-note">Formulario informativo (sitio estático): el envío se simula. Los datos incluirán tipo de formulario y contexto para su clasificación.</p>'+
-          '</form>'+
+          '<div class="form-modal-header">'+
+            '<div class="form-modal-header-copy"><p class="eyebrow" id="nebakFormConcept">Formulario</p><h2 id="nebakFormTitle">Contacto</h2></div>'+
+            '<button type="button" class="form-modal-close" data-form-close aria-label="Cerrar formulario"><span aria-hidden="true">&times;</span></button>'+
+          '</div>'+
+          '<div class="form-modal-body">'+
+            '<p id="nebakFormIntro" class="form-modal-intro"></p>'+
+            '<form id="nebakModalForm" novalidate>'+
+              '<input type="hidden" name="form_type" id="nebakFormType">'+
+              '<input type="hidden" name="concepto" id="nebakFormConceptValue">'+
+              '<input type="hidden" name="origen_pagina" id="nebakFormPage">'+
+              '<input type="hidden" name="animal_slug" id="nebakAnimalSlug">'+
+              '<div class="form-modal-grid" id="nebakFormFields"></div>'+
+              '<div class="actions form-modal-actions"><button class="btn btn-primary" type="submit">Enviar</button><button class="btn btn-secondary" type="button" data-form-close>Cancelar</button></div>'+
+              '<p class="form-success" id="nebakFormSuccess" role="status"></p>'+
+              '<p class="form-note">Formulario informativo (sitio estático): el envío se simula. Los datos incluirán tipo de formulario y contexto para su clasificación.</p>'+
+            '</form>'+
+          '</div>'+
         '</div>';
       document.body.appendChild(modal);
       dialog = modal.querySelector('.form-modal-dialog');
