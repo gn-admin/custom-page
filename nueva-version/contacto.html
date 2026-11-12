@@ -58,16 +58,18 @@
 
       <div class="form-wrap reveal">
         <h2>Envíanos un mensaje</h2>
-        <form data-static-form novalidate>
+        <form data-static-form novalidate data-form-type="contacto-general" data-form-concept="Contacto general">
+          <input type="hidden" name="form_type" value="contacto-general">
+          <input type="hidden" name="concepto" value="Contacto general">
           <label>Nombre *<input type="text" name="nombre" placeholder="Tu nombre" required maxlength="100" autocomplete="name"></label>
           <label>Email *<input type="email" name="email" placeholder="tu@email.com" required maxlength="250" autocomplete="email" pattern="^.+@.+\.[a-zA-Z]{2,63}$"></label>
           <label>Teléfono<input type="tel" name="telefono" placeholder="Teléfono (opcional)" maxlength="50" autocomplete="tel"></label>
           <label>Dirección<input type="text" name="direccion" placeholder="Dirección (opcional)" maxlength="250" autocomplete="street-address"></label>
-          <label>Asunto<input type="text" name="asunto" placeholder="Adopción, acogida, voluntariado, consulta..." maxlength="250"></label>
-          <label>Mensaje<textarea name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></label>
+          <label>Asunto<input type="text" name="asunto" placeholder="Ej.: consulta general, información..." maxlength="250" value="Contacto general"></label>
+          <label>Mensaje *<textarea name="mensaje" required placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></label>
           <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-          <p class="form-success" role="status">¡Gracias! por tu mensaje! Te responderemos lo antes posible.</p>
-          <p class="form-note">Formulario informativo (sitio estático): el envío se simula en esta versión.</p>
+          <p class="form-success" role="status">¡Gracias! Hemos recibido tu mensaje (contacto general). Te responderemos lo antes posible.</p>
+          <p class="form-note">Formulario informativo (sitio estático): el envío se simula. Incluye tipo de consulta para clasificar el mensaje.</p>
         </form>
       </div>
     </div></section>

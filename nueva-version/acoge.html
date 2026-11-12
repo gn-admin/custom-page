@@ -63,13 +63,19 @@
       <p class="muted" style="margin-top:1rem">Calle Santiago 27 1º Izq., Irún, 20304 · <a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
     </div>
     <div class="form-wrap reveal"><h3>Formulario de acogida</h3>
-      <form data-static-form>
+      <form data-static-form data-form-type="acogida" data-form-concept="Solicitud de acogida">
+        <input type="hidden" name="form_type" value="acogida">
+        <input type="hidden" name="concepto" value="Solicitud de acogida">
         <label>Nombre *<input type="text" name="nombre" required></label>
         <label>Email *<input type="email" name="email" required></label>
         <label>Teléfono<input type="tel" name="telefono"></label>
-        <label>Mensaje<textarea name="mensaje" placeholder="Cuéntanos si puedes acoger, durante cuánto tiempo, y si tienes otros animales en casa..."></textarea></label>
-        <button class="btn btn-primary" type="submit">Enviar</button>
-        <p class="form-success" role="status">¡Gracias! Hemos recibido tu interés en acoger.</p>
+        <label>Tipo de acogida<select name="tipo_acogida"><option value="">Selecciona (si aplica)</option><option>Gato adulto</option><option>Gatita/gatito (cachorro)</option><option>Perro adulto</option><option>Cachorro/a de perro</option><option>Acogida de urgencia</option><option>Acogida con cuidados especiales</option><option>Otro</option></select></label>
+        <label>Tiempo disponible<input type="text" name="duracion" placeholder="Semanas, meses o según necesidad"></label>
+        <label>Convivencia<input type="text" name="convivencia" placeholder="Otros animales, niños, tipo de vivienda..."></label>
+        <label>Mensaje *<textarea name="mensaje" required placeholder="Cuéntanos tu disponibilidad y cualquier detalle relevante..."></textarea></label>
+        <button class="btn btn-primary" type="submit">Enviar solicitud de acogida</button>
+        <p class="form-success" role="status">¡Gracias! Hemos recibido tu solicitud de acogida. Te contactaremos lo antes posible.</p>
+        <p class="form-note">Formulario informativo (sitio estático): se registra el concepto “Solicitud de acogida” para clasificar tu mensaje.</p>
       </form>
     </div>
   </div></section>

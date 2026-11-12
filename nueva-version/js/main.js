@@ -230,7 +230,161 @@
     renderDots(); update(); start();
   });
 
-  // Contact/forms (static simulation)
+  // Typed contact/form modal system (conceptos para clasificación de email)
+  var NebakForms = (function () {
+    var modal, dialog, titleEl, introEl, formEl, successEl, conceptEl, pageEl, lastFocus;
+    var types = {
+      'contacto-general': { title: 'Contacto general', intro: 'Cuéntanos en qué podemos ayudarte y te responderemos lo antes posible.', subject: 'Contacto general', fields: ['asunto','mensaje'], success: 'Gracias por tu mensaje. Hemos registrado tu consulta general.' },
+      'voluntariado': { title: 'Voluntariado', intro: 'Cuéntanos cómo te gustaría colaborar, tu disponibilidad y tu zona.', subject: 'Voluntariado', fields: ['tipo_voluntariado','disponibilidad','zona','mensaje'], success: 'Gracias por tu interés en el voluntariado. Te responderemos pronto.' },
+      'donaciones': { title: 'Consulta sobre donaciones', intro: 'Resuelve tus dudas sobre cómo colaborar con Nebak.', subject: 'Consulta sobre donaciones', fields: ['tipo_donacion','mensaje'], success: 'Gracias por tu interés en donar. Te responderemos con la información solicitada.' },
+      'acogida': { title: 'Solicitud de acogida', intro: 'Ofrecer una casa de acogida es un paso muy valioso. Cuéntanos tu situación.', subject: 'Solicitud de acogida', fields: ['tipo_acogida','duracion','convivencia','mensaje'], success: 'Gracias por tu interés en acoger. Te contactaremos lo antes posible.' },
+      'adopcion-animal': { title: 'Consulta de adopción', intro: 'Pregúntanos por este animal y te orientaremos sobre el proceso de adopción.', subject: 'Consulta de adopción', fields: ['animal','mensaje'], success: 'Gracias por tu interés en adoptar. Te responderemos con más información.' },
+      'consulta-animal': { title: 'Consulta sobre un caso', intro: 'Escríbenos sobre este caso y te daremos más información.', subject: 'Consulta sobre un caso', fields: ['animal','mensaje'], success: 'Gracias por tu consulta. Te responderemos lo antes posible.' },
+      'socio': { title: 'Hacerme socio/a', intro: 'Solicita información para hacerte socio/a de Nebak.', subject: 'Solicitud de socio/a', fields: ['modalidad_socio','mensaje'], success: 'Gracias por tu interés en hacerte socio/a. Te contactaremos pronto.' }
+    };
+    function esc(v){ return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function pageName(){ try { return document.title || location.pathname; } catch(e){ return ''; } }
+    function ensure() {
+      if (modal) return modal;
+      modal = document.createElement('div');
+      modal.className = 'form-modal';
+      modal.id = 'nebakFormModal';
+      modal.setAttribute('aria-hidden','true');
+      modal.innerHTML = ''+
+        '<div class="form-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="nebakFormTitle">'+
+          '<button type="button" class="form-modal-close" data-form-close aria-label="Cerrar formulario">&times;</button>'+
+          '<p class="eyebrow" id="nebakFormConcept">Formulario</p>'+
+          '<h2 id="nebakFormTitle">Contacto</h2>'+
+          '<p id="nebakFormIntro" class="form-modal-intro"></p>'+
+          '<form id="nebakModalForm" novalidate>'+
+            '<input type="hidden" name="form_type" id="nebakFormType">'+
+            '<input type="hidden" name="concepto" id="nebakFormConceptValue">'+
+            '<input type="hidden" name="origen_pagina" id="nebakFormPage">'+
+            '<input type="hidden" name="animal_slug" id="nebakAnimalSlug">'+
+            '<div class="form-modal-grid" id="nebakFormFields"></div>'+
+            '<div class="actions" style="margin-top:1rem"><button class="btn btn-primary" type="submit">Enviar</button><button class="btn btn-secondary" type="button" data-form-close>Cancelar</button></div>'+
+            '<p class="form-success" id="nebakFormSuccess" role="status"></p>'+
+            '<p class="form-note">Formulario informativo (sitio estático): el envío se simula. Los datos incluirán tipo de formulario y contexto para su clasificación.</p>'+
+          '</form>'+
+        '</div>';
+      document.body.appendChild(modal);
+      dialog = modal.querySelector('.form-modal-dialog');
+      titleEl = modal.querySelector('#nebakFormTitle');
+      introEl = modal.querySelector('#nebakFormIntro');
+      formEl = modal.querySelector('#nebakModalForm');
+      successEl = modal.querySelector('#nebakFormSuccess');
+      conceptEl = modal.querySelector('#nebakFormConcept');
+      pageEl = modal.querySelector('#nebakFormPage');
+      modal.addEventListener('click', function(e){ if (e.target === modal) close(); });
+      $$('[data-form-close]', modal).forEach(function(b){ b.addEventListener('click', close); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+      formEl.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (!formEl.checkValidity()) { formEl.reportValidity(); return; }
+        var btn = formEl.querySelector('button[type="submit"]');
+        var orig = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
+        var payload = {};
+        new FormData(formEl).forEach(function(v,k){ payload[k]=v; });
+        window.__nebakLastFormPayload = payload; // preparado para integración email/backend
+        try { console.info('[NebakForms] envío simulado', payload); } catch(_){}
+        setTimeout(function(){
+          formEl.reset();
+          modal.querySelector('#nebakFormType').value = payload.form_type || '';
+          modal.querySelector('#nebakFormConceptValue').value = payload.concepto || '';
+          modal.querySelector('#nebakFormPage').value = payload.origen_pagina || pageName();
+          modal.querySelector('#nebakAnimalSlug').value = payload.animal_slug || '';
+          if (btn) { btn.disabled = false; btn.textContent = orig || 'Enviar'; }
+          if (successEl) { successEl.textContent = (types[payload.form_type] && types[payload.form_type].success) || 'Gracias. Hemos recibido tu mensaje.'; successEl.classList.add('show'); }
+          if (typeof showToast === 'function') showToast('Solicitud registrada (' + (payload.concepto || payload.form_type || 'formulario') + ')');
+        }, 900);
+      });
+      formEl.addEventListener('input', function(){ if (successEl) successEl.classList.remove('show'); });
+      return modal;
+    }
+    function fieldHtml(name, ctx, cfg) {
+      var v = function(k){ return esc((ctx && ctx[k]) || ''); };
+      var animalRO = ctx && (ctx.animal || ctx.animal_name) ? ' readonly' : '';
+      switch(name) {
+        case 'nombre': return '<label>Nombre *<input type="text" name="nombre" required maxlength="100" autocomplete="name"></label>';
+        case 'email': return '<label>Email *<input type="email" name="email" required maxlength="250" autocomplete="email"></label>';
+        case 'telefono': return '<label>Teléfono<input type="tel" name="telefono" maxlength="50" autocomplete="tel"></label>';
+        case 'asunto': return '<label>Asunto<input type="text" name="asunto" maxlength="250" value="'+esc((ctx&&ctx.subject)||cfg.subject||'')+'"></label>';
+        case 'tipo_voluntariado': return '<label>Tipo de voluntariado *<select name="tipo_voluntariado" required><option value="">Selecciona una opción</option><option>Colonias felinas / CES</option><option>Rescates y emergencias</option><option>Traslados al veterinario</option><option>Construcción/mantenimiento de casetas</option><option>Difusión y eventos</option><option>Casas de acogida (apoyo)</option><option>Otro</option></select></label>';
+        case 'disponibilidad': return '<label>Disponibilidad<input type="text" name="disponibilidad" placeholder="Días, horarios, puntual o regular"></label>';
+        case 'zona': return '<label>Zona / localidad<input type="text" name="zona" placeholder="Irún, Hondarribia, Donostia..."></label>';
+        case 'tipo_donacion': return '<label>Tipo de consulta de donación *<select name="tipo_donacion" required><option value="">Selecciona una opción</option><option>Donación puntual / transferencia</option><option>Teaming (1 €/mes)</option><option>Hacerme socio/a o cuota</option><option>Donación de material</option><option>Dudas generales sobre donaciones</option><option>Otra colaboración</option></select></label>';
+        case 'modalidad_socio': return '<label>Modalidad *<select name="modalidad_socio" required><option value="">Selecciona una opción</option><option>5 €/mes</option><option>60 €/año</option><option>Quiero información</option></select></label>';
+        case 'tipo_acogida': return '<label>Tipo de acogida<input type="text" name="tipo_acogida" placeholder="Gato, perro, cachorro, urgencia, cuidados..."></label>';
+        case 'duracion': return '<label>Tiempo disponible<input type="text" name="duracion" placeholder="Semanas, meses, según necesidad..."></label>';
+        case 'convivencia': return '<label>Convivencia<input type="text" name="convivencia" placeholder="Otros animales, niños, vivienda, etc."></label>';
+        case 'animal': return '<label>Animal / caso<input type="text" name="animal" value="'+v('animal')+v('animal_name')+'" placeholder="Nombre del animal o caso"'+animalRO+'></label>';
+        case 'mensaje': return '<label>Mensaje *<textarea name="mensaje" required placeholder="'+esc((ctx&&ctx.placeholder)||'Cuéntanos los detalles...')+'">'+esc((ctx&&ctx.message)||'')+'</textarea></label>';
+        default: return '';
+      }
+    }
+    function fieldsFor(cfg, ctx) {
+      var list = ['nombre','email','telefono'].concat(cfg.fields || ['mensaje']);
+      // de-dup keep order
+      var seen={}, out=[];
+      list.forEach(function(f){ if(!seen[f]){ seen[f]=1; out.push(f); } });
+      return out.map(function(f){ return fieldHtml(f, ctx, cfg); }).join('');
+    }
+    function open(type, ctx) {
+      ensure();
+      ctx = ctx || {};
+      var cfg = types[type] || types['contacto-general'];
+      var concept = (ctx.concept || cfg.subject || type);
+      titleEl.textContent = cfg.title;
+      introEl.textContent = ctx.intro || cfg.intro;
+      conceptEl.textContent = concept;
+      modal.querySelector('#nebakFormType').value = type;
+      modal.querySelector('#nebakFormConceptValue').value = concept;
+      modal.querySelector('#nebakFormPage').value = ctx.page || pageName();
+      modal.querySelector('#nebakAnimalSlug').value = ctx.animal_slug || ctx.slug || '';
+      modal.querySelector('#nebakFormFields').innerHTML = fieldsFor(cfg, ctx);
+      if (successEl) successEl.classList.remove('show');
+      lastFocus = document.activeElement;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.classList.add('modal-open');
+      var first = modal.querySelector('input:not([type="hidden"]), select, textarea, button');
+      if (first) try { first.focus(); } catch(e){}
+    }
+    function close() {
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.classList.remove('modal-open');
+      if (lastFocus && lastFocus.focus) try { lastFocus.focus(); } catch(e){}
+    }
+    function inferType(el) {
+      var t = (el.getAttribute('data-form-type') || el.getAttribute('data-open-form') || '').toLowerCase();
+      if (t) return t;
+      return 'contacto-general';
+    }
+    document.addEventListener('click', function(e){
+      var trigger = e.target.closest('[data-open-form],[data-form-type]');
+      if (!trigger) return;
+      if (trigger.tagName === 'A') e.preventDefault();
+      var type = inferType(trigger);
+      var ctx = {
+        concept: trigger.getAttribute('data-form-concept') || '',
+        subject: trigger.getAttribute('data-form-subject') || trigger.getAttribute('data-subject') || '',
+        animal: trigger.getAttribute('data-animal') || '',
+        animal_slug: trigger.getAttribute('data-animal-slug') || '',
+        message: trigger.getAttribute('data-message') || '',
+        placeholder: trigger.getAttribute('data-placeholder') || '',
+        intro: trigger.getAttribute('data-form-intro') || '',
+        page: pageName()
+      };
+      open(type, ctx);
+    });
+    return { open: open, close: close, types: types };
+  })();
+  window.NebakForms = NebakForms;
+
+  // Contact/forms (static simulation) with concept metadata
   $$('form[data-static-form]').forEach(function (form) {
     var success = form.querySelector('.form-success');
     form.addEventListener('submit', function (e) {
@@ -239,10 +393,18 @@
       var btn = form.querySelector('button[type="submit"], input[type="submit"]');
       var orig = btn ? (btn.textContent || btn.value) : '';
       if (btn) { btn.disabled = true; if (btn.textContent) btn.textContent = 'Enviando…'; else btn.value = 'Enviando…'; }
+      var payload = {};
+      try { new FormData(form).forEach(function(v,k){ payload[k]=v; }); } catch(_){}
+      payload.form_type = form.getAttribute('data-form-type') || payload.form_type || 'formulario-estatico';
+      payload.concepto = form.getAttribute('data-form-concept') || payload.concepto || payload.form_type;
+      payload.origen_pagina = document.title || location.pathname;
+      window.__nebakLastFormPayload = payload;
+      try { console.info('[NebakForm] envío simulado', payload); } catch(_){}
       window.setTimeout(function () {
         form.reset();
         if (btn) { btn.disabled = false; if (btn.textContent !== undefined && orig) btn.textContent = orig; else if (orig) btn.value = orig; }
         if (success) success.classList.add('show');
+        if (typeof showToast === 'function') showToast('Solicitud registrada (' + (payload.concepto || payload.form_type) + ')');
       }, 900);
     });
     form.addEventListener('input', function () {
@@ -422,16 +584,25 @@
     function backBtn() { return '<button class="chat-back" type="button" data-back>← Volver</button>'; }
     function successMsg(text) { return '<div class="chat-msg" role="status">'+text+'</div>'; }
 
-    function renderForm(title, intro, fieldsHtml, successText) {
+    function renderForm(title, intro, fieldsHtml, successText, meta) {
+      meta = meta || {};
       body.innerHTML = backBtn() + '<div class="chat-msg"><strong>'+title+'</strong><br>'+intro+'</div>' +
-        '<form class="chat-form-inline" data-chat-inline-form>' + fieldsHtml +
+        '<form class="chat-form-inline" data-chat-inline-form>' +
+        '<input type="hidden" name="form_type" value="'+(meta.form_type||'chat')+'">' +
+        '<input type="hidden" name="concepto" value="'+(meta.concepto||title)+'">' +
+        '<input type="hidden" name="origen_pagina" value="'+(document.title||'nueva-version')+'">' +
+        fieldsHtml +
         '<div class="chat-actions-row"><button class="chat-btn" type="submit">Enviar</button><button class="chat-btn chat-btn-ghost" type="button" data-back>Cancelar</button></div>' +
-        '<p class="form-note">Formulario informativo (sitio estático): el envío se simula.</p></form>';
+        '<p class="form-note">Formulario informativo (sitio estático): el envío se simula e incluye concepto/tipo para clasificación.</p></form>';
       $$('[data-back]', body).forEach(function (b){ b.addEventListener('click', homeView); });
       var f = $('[data-chat-inline-form]', body);
       if (f) f.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!f.checkValidity()) { f.reportValidity(); return; }
+        var payload = {};
+        try { new FormData(f).forEach(function(v,k){ payload[k]=v; }); } catch(_){}
+        window.__nebakLastFormPayload = payload;
+        try { console.info('[NebakChatForm] envío simulado', payload); } catch(_){}
         body.innerHTML = backBtn() + successMsg(successText) + '<div class="chat-actions-row" style="margin-top:.5rem"><button class="chat-btn" type="button" data-back>Volver al inicio</button></div>';
         $$('[data-back]', body).forEach(function (b){ b.addEventListener('click', homeView); });
       });
@@ -445,24 +616,28 @@
         '<label>Teléfono<input type="tel" name="telefono"></label>'+
         '<label>¿Qué animal te interesa?<input type="text" name="animal" placeholder="Nombre o tipo (gato/perro)" value="'+(animal||'').replace(/"/g,'&quot;')+'"></label>'+
         '<label>Mensaje<textarea name="mensaje" placeholder="Háblanos de tu hogar, experiencia y disponibilidad..."></textarea></label>',
-        '¡Gracias! Hemos recibido tu solicitud de adopción. Te responderemos lo antes posible.');
+        '¡Gracias! Hemos recibido tu solicitud de adopción. Te responderemos lo antes posible.',
+        { form_type:'adopcion-animal', concepto: animal ? ('Consulta de adopción: '+animal) : 'Solicitud de adopción' });
     }
     function formAcoge(prefill) {
       renderForm('Acogida temporal', 'Ofrece un hogar temporal mientras el animal encuentra familia. Los gastos veterinarios se acuerdan con la protectora.',
         '<label>Nombre *<input type="text" name="nombre" required></label>'+
         '<label>Email *<input type="email" name="email" required></label>'+
         '<label>Teléfono<input type="tel" name="telefono"></label>'+
-        '<label>Disponibilidad<input type="text" name="tiempo" placeholder="¿Durante cuánto tiempo podrías acoger?"></label>'+
+        '<label>Disponibilidad<input type="text" name="duracion" placeholder="¿Durante cuánto tiempo podrías acoger?"></label>'+
         '<label>Mensaje<textarea name="mensaje" placeholder="¿Tienes otros animales o niños? ¿Qué tipo de acogida puedes ofrecer?"></textarea></label>',
-        '¡Gracias! Hemos recibido tu interés en acoger. Te contactaremos pronto.');
+        '¡Gracias! Hemos recibido tu interés en acoger. Te contactaremos pronto.',
+        { form_type:'acogida', concepto:'Solicitud de acogida' });
     }
     function formVol(prefill) {
       renderForm('Voluntariado', 'Puedes ayudar en colonias, rescates, traslados al veterinario o construcción de casetas, según tu disponibilidad.',
         '<label>Nombre *<input type="text" name="nombre" required></label>'+
         '<label>Email *<input type="email" name="email" required></label>'+
         '<label>Teléfono<input type="tel" name="telefono"></label>'+
+        '<label>Tipo de voluntariado<select name="tipo_voluntariado"><option value="">Selecciona una opción</option><option>Colonias felinas / CES</option><option>Rescates y emergencias</option><option>Traslados al veterinario</option><option>Construcción/mantenimiento de casetas</option><option>Difusión y eventos</option><option>Otro</option></select></label>'+
         '<label>¿Cómo te gustaría ayudar?<textarea name="mensaje" placeholder="Cuéntanos tu disponibilidad, zona y cómo te gustaría colaborar..."></textarea></label>',
-        '¡Gracias por tu interés en ser voluntario/a! Te responderemos pronto.');
+        '¡Gracias por tu interés en ser voluntario/a! Te responderemos pronto.',
+        { form_type:'voluntariado', concepto:'Voluntariado' });
     }
     function formContact(subject) {
       renderForm('Contacto', 'Escríbenos y te responderemos lo antes posible.',
@@ -470,7 +645,8 @@
         '<label>Email *<input type="email" name="email" required></label>'+
         '<label>Asunto<input type="text" name="asunto" value="'+(subject||'').replace(/"/g,'&quot;')+'"></label>'+
         '<label>Mensaje *<textarea name="mensaje" required placeholder="Tu mensaje..."></textarea></label>',
-        '¡Gracias por tu mensaje! Te responderemos lo antes posible.');
+        '¡Gracias por tu mensaje! Te responderemos lo antes posible.',
+        { form_type:'contacto-general', concepto: subject || 'Contacto general' });
     }
 
     toggle.addEventListener('click', function () { if (panel.classList.contains('is-open')) closeChat(); else { homeView(); open(); } });

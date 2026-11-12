@@ -144,6 +144,14 @@
       document.title = post.title + ' · Grupo Nebak';
       var image = HistoriasAPI.fallbackImage(post.image);
       var cta = post.cta || { label: 'Contactar con Nebak', url: 'contacto.html' };
+      var ctaHtml;
+      if (cta && /contacto\.html/.test(String(cta.url || ''))) {
+        var formType = (post.category === 'Acogida' || post.category === 'Acogidas') ? 'acogida' : 'adopcion-animal';
+        var concept = formType === 'acogida' ? ('Consulta de acogida: ' + post.title) : ('Consulta de adopción: ' + post.title);
+        ctaHtml = '<a class="btn btn-primary" href="contacto.html" data-open-form="' + formType + '" data-form-concept="' + esc(concept) + '" data-form-subject="' + esc(concept) + '" data-animal="' + esc(post.title) + '" data-animal-slug="' + esc(post.slug) + '">' + esc(cta.label || 'Contactar con Nebak') + '</a>';
+      } else {
+        ctaHtml = '<a class="btn btn-primary" href="' + esc((cta && cta.url) || 'contacto.html') + '">' + esc((cta && cta.label) || 'Contactar con Nebak') + '</a>';
+      }
       var tags = Array.isArray(post.tags) ? post.tags : [];
       var content = post.content || ('<p>' + esc(post.excerpt || '') + '</p>');
       var pub = post.publication || null;
@@ -157,7 +165,7 @@
             '<h1>' + esc(post.title) + '</h1>' +
             (post.excerpt ? '<p class="lead">' + esc(post.excerpt) + '</p>' : '') +
             (metaLine ? '<p class="meta">' + esc(metaLine) + '</p>' : '') +
-            '<div class="actions"><a class="btn btn-primary" href="' + esc(cta.url) + '">' + esc(cta.label) + '</a><a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
+            '<div class="actions">' + ctaHtml + '<a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
           '</div>' +
           '<div class="post-hero-media"><img src="' + esc(image) + '" alt="' + esc(post.imageAlt || post.title) + '" loading="eager" decoding="async"></div>' +
         '</header>'
@@ -191,7 +199,7 @@
           (tags.length ? '<div class="card-tags post-tags">' + tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
           '<section class="post-section post-section--desc">' + descHead + '<div class="post-body">' + content + '</div></section>' +
           mediaBlocks +
-          '<div class="actions actions-center post-actions"><a class="btn btn-primary" href="' + esc(cta.url) + '">' + esc(cta.label) + '</a> <a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
+          '<div class="actions actions-center post-actions">' + ctaHtml + ' <a class="btn btn-secondary" href="' + esc(back.href) + '">' + esc(back.label) + '</a></div>' +
         '</article>';
       initCarousel(root);
     }).catch(function (err) {

@@ -88,7 +88,20 @@
     <p class="muted">Calle Santiago 27 1º Izq., Irún, 20304 · <a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
   </div>
   <div class="form-wrap reveal"><h3>Formulario de voluntariado</h3>
-    <form data-static-form><label>Nombre *<input type="text" required></label><label>Email *<input type="email" required></label><label>Teléfono<input type="tel"></label><label>Mensaje<textarea placeholder="Cuéntanos cómo te gustaría colaborar, tu disponibilidad y tu zona..."></textarea></label><button class="btn btn-primary" type="submit">Enviar</button><p class="form-success" role="status">¡Gracias! por tu interés en colaborar!</p></form>
+    <form data-static-form data-form-type="voluntariado" data-form-concept="Voluntariado">
+      <input type="hidden" name="form_type" value="voluntariado">
+      <input type="hidden" name="concepto" value="Voluntariado">
+      <label>Nombre *<input type="text" name="nombre" required></label>
+      <label>Email *<input type="email" name="email" required></label>
+      <label>Teléfono<input type="tel" name="telefono"></label>
+      <label>Tipo de voluntariado *<select name="tipo_voluntariado" required><option value="">Selecciona una opción</option><option>Colonias felinas / CES</option><option>Rescates y emergencias</option><option>Traslados al veterinario</option><option>Construcción/mantenimiento de casetas</option><option>Difusión y eventos</option><option>Otro</option></select></label>
+      <label>Disponibilidad<input type="text" name="disponibilidad" placeholder="Puntual, fines de semana, entre semana..."></label>
+      <label>Zona<input type="text" name="zona" placeholder="Irún, Hondarribia, Donostia, etc."></label>
+      <label>Mensaje *<textarea name="mensaje" required placeholder="Cuéntanos cómo te gustaría colaborar y cualquier detalle útil..."></textarea></label>
+      <button class="btn btn-primary" type="submit">Enviar solicitud de voluntariado</button>
+      <p class="form-success" role="status">¡Gracias! Hemos recibido tu solicitud de voluntariado (con tipo de colaboración). Te responderemos pronto.</p>
+      <p class="form-note">Formulario informativo (sitio estático): se registra el tipo de voluntariado para clasificar tu mensaje.</p>
+    </form>
   </div>
 </div></section>
 </main>

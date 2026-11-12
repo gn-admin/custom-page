@@ -821,3 +821,24 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
 @media (max-width: 719px) {
   .post-sheet--story .post-body { padding: 1rem; }
 }
+/* Typed form modal */
+body.modal-open { overflow: hidden; }
+.form-modal { position: fixed; inset: 0; z-index: 120; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(16,32,24,.45); backdrop-filter: blur(4px); }
+.form-modal.is-open { display: flex; }
+.form-modal-dialog { position: relative; width: min(760px, 100%); max-height: calc(100vh - 2rem); overflow: auto; background: #fff; border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow-lg); padding: 1.25rem 1.25rem 1.1rem; }
+.form-modal-close { position: absolute; top: .7rem; right: .7rem; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: #fff; color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.form-modal-close:hover { background: var(--brand-softer); }
+.form-modal-dialog h2 { margin: .2rem 0 .25rem; font-size: clamp(1.45rem, 3vw, 2rem); }
+.form-modal-intro { margin: 0 0 .9rem; color: var(--ink-soft); }
+.form-modal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem 1rem; }
+.form-modal-grid label { display: grid; gap: .35rem; font-weight: 500; font-size: .95rem; min-width: 0; }
+.form-modal-grid label:has(textarea), .form-modal-grid label:has(select[name="tipo_voluntariado"]), .form-modal-grid label:has(select[name="tipo_donacion"]), .form-modal-grid label:has(input[name="asunto"]), .form-modal-grid label:has(input[name="disponibilidad"]), .form-modal-grid label:has(input[name="zona"]), .form-modal-grid label:has(input[name="convivencia"]), .form-modal-grid label:has(input[name="animal"]) { grid-column: 1 / -1; }
+.form-modal-grid input, .form-modal-grid textarea, .form-modal-grid select { width: 100%; min-width: 0; }
+.form-modal .actions .btn { min-width: 160px; }
+@media (max-width: 719px) {
+  .form-modal { padding: .5rem; align-items: flex-end; }
+  .form-modal-dialog { width: 100%; max-height: calc(100vh - .75rem); border-radius: 20px 20px 16px 16px; padding: 1rem .95rem .95rem; }
+  .form-modal-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .form-modal .actions { flex-direction: column; }
+  .form-modal .actions .btn { width: 100%; }
+}
