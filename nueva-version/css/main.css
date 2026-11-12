@@ -277,6 +277,10 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 @media (max-width: 719px) {
   .hero-copy .point { width: 100%; }
   .hero-copy .chip { max-width: 100%; }
+  .split { align-items: stretch !important; }
+  .split > .form-wrap, .split > .reveal.form-wrap { width: 100%; max-width: 100%; }
+  .form-wrap { width: 100%; max-width: 100%; }
+  .form-wrap form { width: 100%; }
 }
 
 /* Prose, lists, info */
