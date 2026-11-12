@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acogidas | Grupo Nebak</title>
+  <meta name="description" content="Acogidas temporales de gatos y perros en Irún: Zeus y Hera y el Trío Felino buscan una casa de acogida mientras llega su adopción.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-acogidas">
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="./" aria-label="Grupo Nebak, inicio">
+      <img src="assets/images/logo.jpg" alt="Logo de Grupo Nebak" width="84" height="80">
+    </a>
+    <div class="header-rule" aria-hidden="true"></div>
+    <div class="header-bottom">
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li class="nav-item"><a href="./">Inicio</a></li>
+          <li class="nav-item"><a href="sobre-nosotros">Acerca de</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-haspopup="true">Adopciones<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="protocolo">Protocolo</a></li><li><a href="gatos-en-adopcion">Gatos En Adopción</a></li><li><a href="perros-en-adopcion">Perros En Adopción</a></li><li><a href="adoptados">Adoptados</a></li></ul>
+        </li>
+          <li class="nav-item"><a href="acogidas" aria-current="page">Acogidas</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-haspopup="true">Colabora<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="hazte-socio">Hazte voluntario</a></li><li><a href="acoge">Acoge</a></li><li><a href="donaciones">Donaciones</a></li></ul>
+        </li>
+          <li class="nav-item"><a href="contacto">Contacto</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-haspopup="true">Más<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="politicas-de-cookies">Política de Cookies</a></li><li><a href="copia-de-politica-de-cookies">Política de Privacidad</a></li><li><a href="casos-externos">Casos Externos</a></li><li><a href="blog">Blog</a></li></ul>
+        </li>
+        </ul>
+      </nav>
+      <div class="header-social" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/nebakadopciones/" target="_blank" rel="noopener" aria-label="Instagram de Grupo Nebak"><img src="assets/images/ig.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://www.facebook.com/Grupo-Nebak-Adopciones-103775221237263" target="_blank" rel="noopener" aria-label="Facebook de Grupo Nebak"><img src="assets/images/fb.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://www.youtube.com/channel/UCpWZP5Q_lC5PaCnrRw4uQRw/channels" target="_blank" rel="noopener" aria-label="YouTube de Grupo Nebak"><img src="assets/images/yt.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://twitter.com/NebakAdopciones" target="_blank" rel="noopener" aria-label="Twitter de Grupo Nebak"><img src="assets/images/tw.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="http://t.me/gruponebak" target="_blank" rel="noopener" aria-label="Telegram de Grupo Nebak"><img src="assets/images/tg.png" alt="" width="20" height="20" loading="lazy"></a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación móvil" aria-hidden="true">
+  <div class="mobile-head">
+    <a href="./" aria-label="Grupo Nebak, inicio"><img src="assets/images/logo.jpg" alt="Logo de Grupo Nebak" width="44" height="44"></a>
+    <button class="mobile-close" type="button" aria-label="Cerrar menú">&times;</button>
+  </div>
+  <ul class="mobile-list">
+    <li><a href="./">Inicio</a></li>
+    <li><a href="sobre-nosotros">Acerca de</a></li>
+    <li class="m-group"><button class="m-toggle" type="button" aria-expanded="false">Adopciones</button><ul class="m-sub"><li><a href="protocolo">Protocolo</a></li><li><a href="gatos-en-adopcion">Gatos En Adopción</a></li><li><a href="perros-en-adopcion">Perros En Adopción</a></li><li><a href="adoptados">Adoptados</a></li></ul></li>
+    <li><a href="acogidas" aria-current="page">Acogidas</a></li>
+    <li class="m-group"><button class="m-toggle" type="button" aria-expanded="false">Colabora</button><ul class="m-sub"><li><a href="hazte-socio">Hazte voluntario</a></li><li><a href="acoge">Acoge</a></li><li><a href="donaciones">Donaciones</a></li></ul></li>
+    <li><a href="contacto">Contacto</a></li>
+    <li class="m-group"><button class="m-toggle" type="button" aria-expanded="false">Más</button><ul class="m-sub"><li><a href="politicas-de-cookies">Política de Cookies</a></li><li><a href="copia-de-politica-de-cookies">Política de Privacidad</a></li><li><a href="casos-externos">Casos Externos</a></li><li><a href="blog">Blog</a></li></ul></li>
+  </ul>
+</aside>
+
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <h1>ACOGIDAS</h1>
+    </div>
+  </div>
+</section>
+
+<section class="section acogidas-intro">
+  <div class="container">
+    <div class="acogidas-intro__grid">
+      <div class="acogidas-intro__copy">
+        <h2>Comprometidos con el bienestar animal</h2>
+        <p>Una acogida temporal consiste en tener a un animal hasta que sea adoptado definitivamente.</p>
+        <p class="acogidas-intro__spacer" aria-hidden="true">&#8203;</p>
+        <p>El término temporal se refiere a que el animal estará en la familia de acogida el tiempo que sea necesario hasta que sea adoptado.</p>
+        <p class="acogidas-intro__spacer" aria-hidden="true">&#8203;</p>
+        <p>Al ser casa de acogida, se consigue que, mientras esperan ser adoptados, los animales estén en un hogar temporal en lugar de en la jaula de una perrera o albergue, minimizando así el estrés que puede suponerles el cambio de no estar en su lugar habitual.</p>
+        <p class="acogidas-intro__spacer" aria-hidden="true">&#8203;</p>
+        <p>Hay situaciones en las que, por diversos motivos de la persona dueña del animal —sobre todo en casos de cambio de domicilio, hasta encontrar un lugar donde le permitan tener a su mascota—, también buscamos acogidas temporales. En este caso, la acogida será hasta que la situación del dueño de la mascota mejore y pueda volver a recuperarla.</p>
+        <p class="acogidas-intro__spacer" aria-hidden="true">&#8203;</p>
+        <p>En ambos casos de acogimiento temporal, las condiciones —gastos veterinarios, comida, otros gastos, etc.— se estipularán en un contrato de acogida que realizamos en el momento de la entrega del animal.</p>
+        <p>Si te interesa ser casa de acogida, tienes que rellenar el cuestionario de</p>
+        <p class="acogidas-intro__spacer" aria-hidden="true">&#8203;</p>
+        <p>Ser casa de acogida es una experiencia maravillosa: ayudas a muchos animales que se encuentran perdidos emocionalmente a vivir en el calor de un hogar hasta encontrar su familia definitiva.</p>
+        <div class="hero__actions acogidas-intro__actions">
+          <a class="btn btn--primary" href="acoge">Quiero ser casa de acogida</a>
+          <a class="btn btn--outline" href="contacto">Preguntar</a>
+        </div>
+      </div>
+      <div class="acogidas-intro__media">
+        <img src="assets/images/acogidas-hero.jpg" alt="Hombre con perro rescatado" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section acogidas-animals">
+  <div class="container">
+    <h2 class="acogidas-animals__title">Animales en<br>acogida</h2>
+
+    <div class="acogidas-list">
+      <article class="acogida-card">
+        <a class="acogida-card__media" href="post?slug=zeus-hera">
+          <img src="assets/images/zeus-hedera.webp" alt="Zeus &amp; Hera" loading="lazy">
+        </a>
+        <div class="acogida-card__body">
+          <p class="acogida-card__author">gruponebak</p>
+          <h3><a href="post?slug=zeus-hera">Zeus &amp; Hera</a></h3>
+          <p class="acogida-card__excerpt">🚨 ACOGIDA TEMPORAL: ¡Hola! Somos Zeus y Hera, dos hermanos en busca de un hogar provisional 🐾❤️ 📋 Ficha Rápida Nombres: Zeus (marrón y blanco) y Hera (negra y blanca) 🐶🟤 🐶⚫ Especie y Raza: Perros — Mezcla tipo Teckel con Podenco Edad: 5 años (adultos en su mejor etapa: educados, equilibrados y cariñosos) Tamaño: Mediano Carácter: Muy buenos, nobles, afectuosos y sociables Compatibilidad: 🐶 Perros: Sí, se llevan genial con otros perros Necesidad: Acogida temporal (hasta</p>
+        </div>
+      </article>
+
+      <article class="acogida-card">
+        <a class="acogida-card__media" href="post?slug=acogida-tr%C3%ADo-felino">
+          <img src="assets/images/trio-felino.webp" alt="Acogida - Trío Felino" loading="lazy">
+        </a>
+        <div class="acogida-card__body">
+          <p class="acogida-card__author">gruponebak</p>
+          <h3><a href="post?slug=acogida-tr%C3%ADo-felino">Acogida - Trío Felino</a></h3>
+          <p class="acogida-card__excerpt">🚨 ACOGIDA TEMPORAL URGENTE: Buscamos hogar para un trío felino maravilloso 🐾❤️ 📋 Ficha Rápida Integrantes: 3 Gatos adultos (2 hembras y 1 macho) 🐱👧 🐱👧 🐱👦 Salud: Todos esterilizados 🩺 Carácter: Muy buenos, tranquilos y cariñosos Duración de la acogida: Temporal (aproximadamente 6 meses por situación personal) Condiciones económicas: Gastos 100% cubiertos (comida, arena, veterinario) + remuneración para la casa de acogida 💶✨ 🐱 Conócenos un poco más "¡Hola a todos! S</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-social" aria-label="Redes sociales">
+      <a href="https://www.instagram.com/nebakadopciones/" target="_blank" rel="noopener" aria-label="Instagram de Grupo Nebak"><img src="assets/images/ig.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://www.facebook.com/Grupo-Nebak-Adopciones-103775221237263" target="_blank" rel="noopener" aria-label="Facebook de Grupo Nebak"><img src="assets/images/fb.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://www.youtube.com/channel/UCpWZP5Q_lC5PaCnrRw4uQRw/channels" target="_blank" rel="noopener" aria-label="YouTube de Grupo Nebak"><img src="assets/images/yt.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://twitter.com/NebakAdopciones" target="_blank" rel="noopener" aria-label="Twitter de Grupo Nebak"><img src="assets/images/tw.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="http://t.me/gruponebak" target="_blank" rel="noopener" aria-label="Telegram de Grupo Nebak"><img src="assets/images/tg.png" alt="" width="20" height="20" loading="lazy"></a>
+    </div>
+    <div class="footer-contact">
+      <p><a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
+      <p><a href="tel:+34625140588">625 140 588</a></p>
+      <p>20304 Irún, Gipuzkoa, España</p>
+    </div>
+    <p class="footer-copy">©2020 por Nebak Adopciones. Creada con Wix.com</p>
+  </div>
+</footer>
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Aviso de cookies" aria-hidden="true">
+  <div class="cookie-inner">
+    <p class="cookie-text">Utilizamos cookies propias y de terceros para analizar hábitos de navegación y mejorar el contenido. Puedes aceptarlas o configurarlas. Más información en la <a href="politicas-de-cookies">Política de Cookies</a> y la <a href="copia-de-politica-de-cookies">Política de Privacidad</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn" type="button" data-cookie-options>Opciones de cookies</button>
+      <button class="cookie-btn cookie-btn--accept" type="button" data-cookie-accept>Aceptar</button>
+      <button class="cookie-close" type="button" data-cookie-close aria-label="Cerrar aviso de cookies">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-hidden="true">
+  <div class="cookie-dialog">
+    <h2 id="cookieTitle">Opciones de cookies</h2>
+    <p>Puedes decidir qué cookies deseas aceptar. Las cookies necesarias son imprescindibles para que la web funcione y no se pueden desactivar.</p>
+    <div class="cookie-row">
+      <div><h3>Necesarias</h3><p>Permiten la navegación y el funcionamiento básico del sitio.</p></div>
+      <label class="switch"><input type="checkbox" checked disabled aria-label="Cookies necesarias, siempre activas"><span></span></label>
+    </div>
+    <div class="cookie-row">
+      <div><h3>Analíticas</h3><p>Nos ayudan a conocer de forma anónima cómo se utiliza la web.</p></div>
+      <label class="switch"><input type="checkbox" id="cookieAnalytics" aria-label="Cookies analíticas"><span></span></label>
+    </div>
+    <div class="cookie-row">
+      <div><h3>Marketing</h3><p>Permiten mostrar contenido y campañas adaptadas a tus intereses.</p></div>
+      <label class="switch"><input type="checkbox" id="cookieMarketing" aria-label="Cookies de marketing"><span></span></label>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn" type="button" data-cookie-reject-all>Rechazar todas</button>
+      <button class="cookie-btn cookie-btn--accept" type="button" data-cookie-save>Guardar preferencias</button>
+      <button class="cookie-btn" type="button" data-cookie-modal-close>Cerrar</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

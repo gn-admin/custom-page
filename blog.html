@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Grupo Nebak</title>
+  <meta name="description" content="Blog de Grupo Nebak: adopciones, acogidas temporales, casos urgentes y noticias de la asociación de animales de Irún.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="./" aria-label="Grupo Nebak, inicio">
+      <img src="assets/images/logo.jpg" alt="Logo de Grupo Nebak" width="84" height="80">
+    </a>
+    <div class="header-rule" aria-hidden="true"></div>
+    <div class="header-bottom">
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li class="nav-item"><a href="./">Inicio</a></li>
+          <li class="nav-item"><a href="sobre-nosotros">Acerca de</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-haspopup="true">Adopciones<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="protocolo">Protocolo</a></li><li><a href="gatos-en-adopcion">Gatos En Adopción</a></li><li><a href="perros-en-adopcion">Perros En Adopción</a></li><li><a href="adoptados">Adoptados</a></li></ul>
+        </li>
+          <li class="nav-item"><a href="acogidas">Acogidas</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-haspopup="true">Colabora<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="hazte-socio">Hazte voluntario</a></li><li><a href="acoge">Acoge</a></li><li><a href="donaciones">Donaciones</a></li></ul>
+        </li>
+          <li class="nav-item"><a href="contacto">Contacto</a></li>
+          <li class="nav-item has-dropdown">
+          <button class="nav-parent is-active" type="button" aria-expanded="false" aria-haspopup="true">Más<svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 5 4-5z"/></svg></button>
+          <ul class="dropdown"><li><a href="politicas-de-cookies">Política de Cookies</a></li><li><a href="copia-de-politica-de-cookies">Política de Privacidad</a></li><li><a href="casos-externos">Casos Externos</a></li><li><a href="blog" aria-current="page">Blog</a></li></ul>
+        </li>
+        </ul>
+      </nav>
+      <div class="header-social" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/nebakadopciones/" target="_blank" rel="noopener" aria-label="Instagram de Grupo Nebak"><img src="assets/images/ig.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://www.facebook.com/Grupo-Nebak-Adopciones-103775221237263" target="_blank" rel="noopener" aria-label="Facebook de Grupo Nebak"><img src="assets/images/fb.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://www.youtube.com/channel/UCpWZP5Q_lC5PaCnrRw4uQRw/channels" target="_blank" rel="noopener" aria-label="YouTube de Grupo Nebak"><img src="assets/images/yt.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="https://twitter.com/NebakAdopciones" target="_blank" rel="noopener" aria-label="Twitter de Grupo Nebak"><img src="assets/images/tw.png" alt="" width="20" height="20" loading="lazy"></a>
+        <a href="http://t.me/gruponebak" target="_blank" rel="noopener" aria-label="Telegram de Grupo Nebak"><img src="assets/images/tg.png" alt="" width="20" height="20" loading="lazy"></a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación móvil" aria-hidden="true">
+  <div class="mobile-head">
+    <a href="./" aria-label="Grupo Nebak, inicio"><img src="assets/images/logo.jpg" alt="Logo de Grupo Nebak" width="44" height="44"></a>
+    <button class="mobile-close" type="button" aria-label="Cerrar menú">&times;</button>
+  </div>
+  <ul class="mobile-list">
+    <li><a href="./">Inicio</a></li>
+    <li><a href="sobre-nosotros">Acerca de</a></li>
+    <li class="m-group"><button class="m-toggle" type="button" aria-expanded="false">Adopciones</button><ul class="m-sub"><li><a href="protocolo">Protocolo</a></li><li><a href="gatos-en-adopcion">Gatos En Adopción</a></li><li><a href="perros-en-adopcion">Perros En Adopción</a></li><li><a href="adoptados">Adoptados</a></li></ul></li>
+    <li><a href="acogidas">Acogidas</a></li>
+    <li class="m-group"><button class="m-toggle" type="button" aria-expanded="false">Colabora</button><ul class="m-sub"><li><a href="hazte-socio">Hazte voluntario</a></li><li><a href="acoge">Acoge</a></li><li><a href="donaciones">Donaciones</a></li></ul></li>
+    <li><a href="contacto">Contacto</a></li>
+    <li class="m-group is-active"><button class="m-toggle" type="button" aria-expanded="false">Más</button><ul class="m-sub"><li><a href="politicas-de-cookies">Política de Cookies</a></li><li><a href="copia-de-politica-de-cookies">Política de Privacidad</a></li><li><a href="casos-externos">Casos Externos</a></li><li><a href="blog" aria-current="page">Blog</a></li></ul></li>
+  </ul>
+</aside>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      
+      <h1>Blog</h1>
+      <p>Adopciones, acogidas, casos urgentes y noticias de Grupo Nebak.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="carousel__head">
+      <div>
+        
+        <h2>Últimas publicaciones</h2>
+      </div>
+      <p class="muted" id="blogCount">Cargando…</p>
+    </div>
+
+    <div class="post-grid" id="blogPostsContainer">
+      <p class="loading-state">Cargando historias…</p>
+    </div>
+    <noscript>
+      <p class="noscript-note">El listado del blog se genera dinámicamente desde <code>data/blog-posts.json</code>. Activa JavaScript para verlo.</p>
+    </noscript>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-social" aria-label="Redes sociales">
+      <a href="https://www.instagram.com/nebakadopciones/" target="_blank" rel="noopener" aria-label="Instagram de Grupo Nebak"><img src="assets/images/ig.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://www.facebook.com/Grupo-Nebak-Adopciones-103775221237263" target="_blank" rel="noopener" aria-label="Facebook de Grupo Nebak"><img src="assets/images/fb.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://www.youtube.com/channel/UCpWZP5Q_lC5PaCnrRw4uQRw/channels" target="_blank" rel="noopener" aria-label="YouTube de Grupo Nebak"><img src="assets/images/yt.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="https://twitter.com/NebakAdopciones" target="_blank" rel="noopener" aria-label="Twitter de Grupo Nebak"><img src="assets/images/tw.png" alt="" width="20" height="20" loading="lazy"></a>
+<a href="http://t.me/gruponebak" target="_blank" rel="noopener" aria-label="Telegram de Grupo Nebak"><img src="assets/images/tg.png" alt="" width="20" height="20" loading="lazy"></a>
+    </div>
+    <div class="footer-contact">
+      <p><a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
+      <p><a href="tel:+34625140588">625 140 588</a></p>
+      <p>20304 Irún, Gipuzkoa, España</p>
+    </div>
+    <p class="footer-copy">©2020 por Nebak Adopciones. Creada con Wix.com</p>
+  </div>
+</footer>
+  <script src="js/blog-api.js"></script>
+  <script src="js/blog-render-index.js"></script>
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Aviso de cookies" aria-hidden="true">
+  <div class="cookie-inner">
+    <p class="cookie-text">Utilizamos cookies propias y de terceros para analizar hábitos de navegación y mejorar el contenido. Puedes aceptarlas o configurarlas. Más información en la <a href="politicas-de-cookies">Política de Cookies</a> y la <a href="copia-de-politica-de-cookies">Política de Privacidad</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn" type="button" data-cookie-options>Opciones de cookies</button>
+      <button class="cookie-btn cookie-btn--accept" type="button" data-cookie-accept>Aceptar</button>
+      <button class="cookie-close" type="button" data-cookie-close aria-label="Cerrar aviso de cookies">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-hidden="true">
+  <div class="cookie-dialog">
+    <h2 id="cookieTitle">Opciones de cookies</h2>
+    <p>Puedes decidir qué cookies deseas aceptar. Las cookies necesarias son imprescindibles para que la web funcione y no se pueden desactivar.</p>
+    <div class="cookie-row">
+      <div><h3>Necesarias</h3><p>Permiten la navegación y el funcionamiento básico del sitio.</p></div>
+      <label class="switch"><input type="checkbox" checked disabled aria-label="Cookies necesarias, siempre activas"><span></span></label>
+    </div>
+    <div class="cookie-row">
+      <div><h3>Analíticas</h3><p>Nos ayudan a conocer de forma anónima cómo se utiliza la web.</p></div>
+      <label class="switch"><input type="checkbox" id="cookieAnalytics" aria-label="Cookies analíticas"><span></span></label>
+    </div>
+    <div class="cookie-row">
+      <div><h3>Marketing</h3><p>Permiten mostrar contenido y campañas adaptadas a tus intereses.</p></div>
+      <label class="switch"><input type="checkbox" id="cookieMarketing" aria-label="Cookies de marketing"><span></span></label>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn" type="button" data-cookie-reject-all>Rechazar todas</button>
+      <button class="cookie-btn cookie-btn--accept" type="button" data-cookie-save>Guardar preferencias</button>
+      <button class="cookie-btn" type="button" data-cookie-modal-close>Cerrar</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

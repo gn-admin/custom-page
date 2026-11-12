@@ -1,0 +1,58 @@
+# Gitignore para Grupo Nebak - Sitio estático HTML/CSS/JS
+
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.DS_Store
+
+# Editor y IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Build y distribución
+dist/
+build/
+out/
+site/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+.tmp-*
+
+# Archivos de prueba local
+test-*.js
+test-*.html
+test-*.png
+test-*.jpg
+
+# Entorno local
+.env
+.env.local
+.env.*.local
+
+# Configuración específica de entornos
+config.local.json
+
+# Herramientas locales y material de referencia
+.opencode/
+.freebuff/
+analyze-contact.js
+original-contact.png
