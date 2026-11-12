@@ -142,7 +142,8 @@
             return;
           }
           root.innerHTML = filtered.map(function(p){
-            var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+            var from = (cat === 'Gatos en adopción') ? 'gatos' : (cat === 'Perros en adopción' ? 'perros' : 'historias');
+            var href = 'post.html?slug=' + encodeURIComponent(p.slug) + '&from=' + encodeURIComponent(from);
             var img = imgPath(p.image);
             var flags = tagFlags(p);
             var badges = [];
@@ -153,7 +154,7 @@
             return '<article class="card listing-card reveal is-visible">' +
               (img ? '<a href="'+href+'"><img src="'+img+'" alt="'+(p.title||'Animal en adopción')+'" loading="lazy"></a>' : '') +
               '<div class="card-body">' + badgeHtml + '<h3>'+(p.title||'')+'</h3><p>'+(p.excerpt||'')+'</p>' +
-              '<a class="card-link" href="'+href+'">Conocer historia →</a></div></article>';
+              '<a class="card-link" href="'+href+'">Ver ficha →</a></div></article>';
           }).join('');
         }
 
@@ -392,7 +393,9 @@
         }
         if (!list.length) { res.innerHTML = '<div class="chat-msg chat-empty">No he encontrado coincidencias para “'+(q||'').replace(/</g,'&lt;')+'”. Prueba con otro nombre o usa los formularios de adopción, acogida o voluntariado.</div>'; return; }
         res.innerHTML = '<div class="chat-results">' + list.map(function (p) {
-          var img = imgPath(p.image); var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+          var img = imgPath(p.image);
+          var from = (p.category === 'Gatos en adopción') ? 'gatos' : (p.category === 'Perros en adopción' ? 'perros' : 'historias');
+          var href = 'post.html?slug=' + encodeURIComponent(p.slug) + '&from=' + encodeURIComponent(from);
           return '<div class="chat-result">'+(img?('<img src="'+img+'" alt="">'):'<div></div>')+'<div><h4>'+p.title+'</h4><p>'+ (p.category||'') +'</p><a href="'+href+'">Ver ficha →</a></div></div>';
         }).join('') + '</div>';
       });

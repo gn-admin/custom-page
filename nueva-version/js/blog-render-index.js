@@ -20,7 +20,7 @@
     return text.slice(0, limit).replace(/\s+\S*$/, '') + '…';
   }
 
-  function postUrl(slug) { return 'post.html?slug=' + encodeURIComponent(slug); }
+  function postUrl(slug, from) { return 'post.html?slug=' + encodeURIComponent(slug) + '&from=' + encodeURIComponent(from || 'historias'); }
 
   function categoryTone(cat) {
     var c = norm(cat);
@@ -34,7 +34,7 @@
   }
 
   function card(post) {
-    var url = postUrl(post.slug);
+    var url = postUrl(post.slug, 'historias');
     var image = (typeof HistoriasAPI !== 'undefined' && HistoriasAPI.fallbackImage)
       ? HistoriasAPI.fallbackImage(post.image)
       : (post.image || '../assets/images/logo.jpg');
