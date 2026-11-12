@@ -43,7 +43,7 @@ button, input, textarea, select { font: inherit; }
 .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: .7rem 1rem; background: #fff; border-radius: 12px; z-index: 9999; box-shadow: var(--shadow-sm); }
 
-.container { width: var(--container); margin: 0 auto; }
+.container { width: var(--container); margin: 0 auto; min-width: 0; }
 .section { padding: 4.5rem 0; }
 .section--alt { background: var(--mint-bg); }
 .section--soft { background: var(--brand-softer); }
@@ -130,8 +130,15 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
-.split { display: grid; gap: 2rem; align-items: center; }
-@media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; gap: 2.5rem; } .split.reverse .split-media { order: 2; } }
+.split { display: flex; flex-direction: column; gap: 2rem; align-items: stretch; }
+.split > :not(.split-media) { order: 1; min-width: 0; }
+.split > .split-media { order: 2; min-width: 0; width: 100%; }
+@media (min-width: 900px) {
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+  .split > :not(.split-media), .split > .split-media { order: 0; }
+  .split.reverse > .split-media { order: 2; }
+  .split.reverse > :not(.split-media) { order: 1; }
+}
 .section-head { margin-bottom: 2rem; }
 .section-head.center { max-width: 760px; margin-left: auto; margin-right: auto; }
 .section-head h2 { margin-top: .2rem; }
@@ -251,7 +258,8 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 
 /* Prose, lists, info */
 .prose { max-width: 75ch; }
-.prose p, .prose li { color: var(--ink-soft); }
+.prose p, .prose li { color: var(--ink-soft); overflow-wrap: anywhere; }
+.card h3, .card p, .story-body h3, .story-body p, .feature-card h3, .feature-card p { overflow-wrap: anywhere; }
 .prose ul, .prose ol { padding-left: 1.2rem; }
 .info-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--brand); border-radius: 16px; padding: 1.1rem 1.2rem; }
 .info-box p { margin: .35rem 0; color: var(--ink-soft); }
@@ -422,7 +430,7 @@ input:focus, textarea:focus { border-color: var(--brand); outline: none; box-sha
 .site-footer { border-top: 1px solid var(--border); background: #fff; padding: 3rem 0 1.5rem; margin-top: 2rem; }
 .footer-grid { display: grid; gap: 2rem; }
 .footer-grid h3 { font-size: 1rem; margin-bottom: .6rem; }
-.footer-grid p, .footer-grid li, .footer-grid a { color: var(--ink-soft); font-size: .95rem; }
+.footer-grid p, .footer-grid li, .footer-grid a { color: var(--ink-soft); font-size: .95rem; overflow-wrap: anywhere; }
 .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
 .socials { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
 .socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
