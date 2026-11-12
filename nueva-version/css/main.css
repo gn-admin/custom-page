@@ -252,9 +252,12 @@ h3 { font-size: 1.25rem; line-height: 1.25; }
 @media (min-width: 900px) { .impact-band { grid-template-columns: 1.3fr auto; padding: 3rem; } }
 
 .mission-points { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); margin-top: 1.5rem; }
+.mission-points-hero { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+@media (max-width: 480px) { .mission-points, .mission-points-hero { grid-template-columns: 1fr; gap: .75rem; } }
 .point { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.1rem 1.2rem; }
 .point strong { display: block; font-family: "Montserrat", sans-serif; color: var(--brand-deep); margin-bottom: .2rem; }
 .point span { color: var(--ink-soft); font-size: .95rem; }
+.actions-center { justify-content: center; }
 
 /* Prose, lists, info */
 .prose { max-width: 75ch; }
