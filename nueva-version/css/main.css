@@ -680,3 +680,36 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
   .site-nav { padding: .9rem 1.25rem 1.1rem; }
   .hero-grid { gap: 1.6rem; }
 }
+/* Publication / post detail (acogida, adopciones, etc.) */
+.post-publication { display: grid; gap: 1.25rem; }
+.post-section { display: grid; gap: .75rem; }
+.post-section-head h2 { font-size: 1.25rem; margin: 0; }
+.post-section-head p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
+.post-icons { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; margin: .25rem 0 .5rem; }
+.post-icon { display: flex; align-items: flex-start; gap: .7rem; padding: .85rem .9rem; border: 1px solid var(--border); border-radius: 14px; background: linear-gradient(180deg,#fff,#f8fcfa); }
+.post-icon-emoji { font-size: 1.25rem; line-height: 1.1; }
+.post-icon-text { display: grid; gap: .1rem; min-width: 0; }
+.post-icon-text strong { font-size: .92rem; color: var(--ink); }
+.post-icon-text span { font-size: .9rem; color: var(--ink-soft); }
+.post-carousel { position: relative; border: 1px solid var(--border); border-radius: 18px; background: #fff; padding: .75rem; }
+.post-carousel-viewport { overflow: hidden; border-radius: 14px; }
+.post-carousel-track { display: flex; transition: transform 350ms cubic-bezier(.2,.7,.2,1); }
+.post-slide { min-width: 100%; margin: 0; display: grid; gap: .4rem; }
+.post-slide img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; margin: 0; }
+.post-slide figcaption { font-size: .9rem; color: var(--ink-soft); padding: 0 .15rem .1rem; }
+.post-carousel-controls { display: flex; justify-content: space-between; gap: .5rem; margin-top: .6rem; }
+.post-carousel-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 1.2rem; color: var(--ink); }
+.post-carousel-btn:hover { background: var(--brand-softer); border-color: #bfe8cf; }
+.post-carousel-dots { display: flex; justify-content: center; gap: .4rem; flex-wrap: wrap; margin-top: .6rem; }
+.post-carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: 0; background: #cfe0d6; cursor: pointer; padding: 0; }
+.post-carousel-dot.active { background: var(--brand-dark); width: 22px; border-radius: 999px; }
+.post-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #0f1713; border: 1px solid var(--border); }
+.post-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.post-video-note { margin: .6rem 0 0; color: var(--ink-soft); font-size: .92rem; }
+@media (max-width: 719px) {
+  .post-icons { grid-template-columns: 1fr; }
+  .post-icon { padding: .8rem .85rem; }
+  .post-carousel { padding: .6rem; }
+  .post-slide img { aspect-ratio: 4 / 3; }
+  .post-carousel-controls { justify-content: center; }
+}

@@ -1,0 +1,171 @@
+{
+  "endpoint": "GET /api/publicaciones",
+  "description": "Ejemplo de respuesta de endpoint para publicaciones relacionadas con acogida y adopciones (fichas de animales y eventos/hitos).",
+  "generatedAt": "2026-11-12T12:00:00Z",
+  "filters": {
+    "type": ["animal", "evento"],
+    "category": ["Acogida", "Acogidas", "Gatos en adopción", "Perros en adopción", "Adoptados", "Caso externo", "Eventos"],
+    "status": ["en_acogida", "en_adopcion", "adoptado", "urgente", "finalizado", "activo"],
+    "species": ["gato", "perro", "otros"],
+    "q": "búsqueda libre por título/tags/descripción"
+  },
+  "pagination": {
+    "page": 1,
+    "pageSize": 12,
+    "total": 3,
+    "totalPages": 1
+  },
+  "data": [
+    {
+      "id": "pub_udane_julia",
+      "slug": "udane-julia-gata",
+      "type": "animal",
+      "category": "Gatos en adopción",
+      "status": "en_adopcion",
+      "title": "Udane y Julia",
+      "excerpt": "Dos hermanitas de 3 meses buscan un hogar conjunto. Udane es tuerta y hace de lazarillo de Julia, que es completamente ciega.",
+      "publishedAt": "2026-09-16",
+      "updatedAt": "2026-11-12",
+      "author": "gruponebak",
+      "coverImage": {
+        "src": "assets/images/udane-julia.webp",
+        "alt": "Udane y Julia, dos gatitas en adopción"
+      },
+      "icons": [
+        { "icon": "🐱", "label": "Especie", "value": "Gato" },
+        { "icon": "📍", "label": "Zona", "value": "Irún / Gipuzkoa" },
+        { "icon": "💚", "label": "Proceso", "value": "Adopción responsable con seguimiento" },
+        { "icon": "👥", "label": "Vínculo", "value": "Adopción conjunta" }
+      ],
+      "animal": {
+        "names": ["Udane", "Julia"],
+        "species": "gato",
+        "breed": "Común europeo",
+        "sex": ["hembra", "hembra"],
+        "age": { "value": 3, "unit": "months", "label": "3 meses" },
+        "size": "pequeño",
+        "health": {
+          "vaccinated": false,
+          "dewormed": true,
+          "neutered": false,
+          "microchipped": true,
+          "specialNeeds": "Udane es tuerta y guía a Julia, que es completamente ciega."
+        },
+        "temperament": ["alegres", "cariñosas", "sociables"],
+        "compatibility": { "dogs": "desconocido", "cats": "sí", "kids": "valorar" },
+        "adoption": {
+          "mode": "conjunta",
+          "feeEur": 100,
+          "includes": ["microchip", "desparasitación interna", "desparasitación externa"],
+          "requirements": ["contrato de adopción", "seguimiento de adaptación", "hogar seguro"]
+        },
+        "location": { "city": "Irún", "province": "Gipuzkoa" },
+        "contact": { "email": "nebakadopciones@gmail.com", "phone": "625 140 588" }
+      },
+      "gallery": [
+        { "src": "assets/images/udane-julia.webp", "alt": "Imagen principal", "caption": "Imagen principal", "order": 1 },
+        { "src": "assets/images/nueva/gato-hogar.jpg", "alt": "Udane y Julia en entorno tranquilo", "caption": "Momento y contexto (1)", "order": 2 },
+        { "src": "assets/images/nueva/gato-refugio.jpg", "alt": "Descanso y cuidados", "caption": "Momento y contexto (2)", "order": 3 },
+        { "src": "assets/images/nueva/gato-carino.jpg", "alt": "Interacción y socialización", "caption": "Momento y contexto (3)", "order": 4 }
+      ],
+      "video": {
+        "title": "Vídeo: adopción y cuidado responsable",
+        "provider": "youtube",
+        "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
+        "thumbnail": null,
+        "durationSec": null,
+        "note": "Vídeo orientativo de apoyo."
+      },
+      "contentHtml": "<p>Descripción completa de la publicación...</p>",
+      "tags": ["Gatos", "Gatos en adopción", "2026"],
+      "cta": { "label": "Contactar con Nebak", "url": "contacto.html" }
+    },
+    {
+      "id": "pub_zeus_hera",
+      "slug": "zeus-hera",
+      "type": "animal",
+      "category": "Acogida",
+      "status": "en_acogida",
+      "title": "Zeus & Hera",
+      "excerpt": "Zeus y Hera son dos hermanos de 5 años que buscan una acogida temporal.",
+      "publishedAt": "2026-09-17",
+      "coverImage": { "src": "assets/images/zeus-hedera.webp", "alt": "Zeus y Hera" },
+      "icons": [
+        { "icon": "🏠", "label": "Tipo", "value": "Acogida temporal" },
+        { "icon": "🐶", "label": "Especie", "value": "Perro" },
+        { "icon": "👥", "label": "Vínculo", "value": "Acogida conjunta" }
+      ],
+      "animal": {
+        "names": ["Zeus", "Hera"],
+        "species": "perro",
+        "breed": "Mezcla tipo Teckel con Podenco",
+        "age": { "value": 5, "unit": "years", "label": "5 años" },
+        "size": "mediano",
+        "temperament": ["nobles", "afectuosos", "sociables"],
+        "foster": {
+          "temporary": true,
+          "reason": "Situación personal de la familia",
+          "expensesPolicy": "Según contrato de acogida (veterinario/comida y otros gastos estipulados)"
+        },
+        "location": { "city": "Irún", "province": "Gipuzkoa" }
+      },
+      "gallery": [
+        { "src": "assets/images/zeus-hedera.webp", "alt": "Imagen principal", "caption": "Imagen principal", "order": 1 },
+        { "src": "assets/images/nueva/acogida-hogar.jpg", "alt": "Hogar de acogida", "caption": "Momento y contexto (1)", "order": 2 },
+        { "src": "assets/images/nueva/acogida-calma.jpg", "alt": "Entorno tranquilo", "caption": "Momento y contexto (2)", "order": 3 },
+        { "src": "assets/images/nueva/hogar-adopcion.jpg", "alt": "Cuidado y acompañamiento", "caption": "Momento y contexto (3)", "order": 4 }
+      ],
+      "video": {
+        "title": "Vídeo: qué implica acoger a un animal",
+        "provider": "youtube",
+        "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
+        "note": "Vídeo orientativo de apoyo."
+      },
+      "tags": ["Acogida", "Perros", "Acogida temporal"]
+    },
+    {
+      "id": "evt_jornada_acogida",
+      "slug": "jornada-acogida-y-adopcion",
+      "type": "evento",
+      "category": "Eventos",
+      "status": "activo",
+      "title": "Jornada de acogida y adopción responsable",
+      "excerpt": "Encuentro informativo para conocer el proceso de acogida y adopción con Nebak.",
+      "publishedAt": "2026-10-05",
+      "coverImage": { "src": "assets/images/nueva/adopcion-familia.jpg", "alt": "Jornada de acogida y adopción" },
+      "icons": [
+        { "icon": "📅", "label": "Fecha", "value": "Por confirmar" },
+        { "icon": "📍", "label": "Lugar", "value": "Irún" },
+        { "icon": "🤝", "label": "Formato", "value": "Evento presencial / hito informativo" }
+      ],
+      "event": {
+        "kind": "evento",
+        "startDate": "2026-10-20T10:00:00+02:00",
+        "endDate": "2026-10-20T13:00:00+02:00",
+        "timezone": "Europe/Madrid",
+        "location": { "name": "Espacio Nebak", "address": "Irún, Gipuzkoa", "city": "Irún" },
+        "organizer": { "name": "Grupo Nebak", "contactEmail": "nebakadopciones@gmail.com" },
+        "audience": ["familias interesadas en adoptar", "personas interesadas en acoger", "voluntariado"],
+        "agenda": [
+          { "time": "10:00", "title": "Bienvenida y presentación de Nebak" },
+          { "time": "10:30", "title": "Cómo funciona la acogida y la adopción" },
+          { "time": "11:30", "title": "Resolución de dudas y próximos pasos" }
+        ],
+        "registration": { "required": false, "url": "contacto.html", "label": "Solicitar información" }
+      },
+      "gallery": [
+        { "src": "assets/images/nueva/adopcion-familia.jpg", "alt": "Encuentro informativo", "caption": "Imagen principal", "order": 1 },
+        { "src": "assets/images/nueva/contacto-cercania.jpg", "alt": "Atención y orientación", "caption": "Momento y contexto (1)", "order": 2 },
+        { "src": "assets/images/nueva/acogida-hogar.jpg", "alt": "Acogida y acompañamiento", "caption": "Momento y contexto (2)", "order": 3 },
+        { "src": "assets/images/nueva/donaciones-apoyo.jpg", "alt": "Colaboración y apoyo", "caption": "Momento y contexto (3)", "order": 4 }
+      ],
+      "video": {
+        "title": "Vídeo: participación y apoyo comunitario",
+        "provider": "youtube",
+        "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
+        "note": "Vídeo orientativo de apoyo."
+      },
+      "tags": ["Eventos", "Acogida", "Adopción"]
+    }
+  ]
+}
