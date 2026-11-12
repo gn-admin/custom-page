@@ -45,7 +45,7 @@ Está alineado con:
 
 ### Detalle
 - `GET /api/publicaciones/:slug` (o `:id`)
-- Devuelve una publicación completa con esquema de publicación (`icons`, `gallery`, `video`) y bloque específico (`animal` o `event`).
+- Devuelve una publicación completa con esquema de publicación (`icons`, `gallery`, `videos`/`video`) y bloque específico (`animal` o `event`).
 
 ---
 
@@ -93,14 +93,15 @@ Campos comunes para que todas las publicaciones de acogida/adopciones mantengan 
 | `coverImage` | `{src, alt}` | Recomendado | Imagen principal. |
 | `icons` | `IconItem[]` | **Sí*** | Datos destacados con icono (especie, zona, estado, prioridad, etc.). |
 | `gallery` | `GalleryItem[]` | **Sí*** | Carrusel de imágenes (mín. 1, recomendado 3–6). |
-| `video` | `VideoItem` | **Sí*** | Vídeo de apoyo/informativo (puede ser orientativo si no hay material propio). |
+| `videos` | `VideoItem[]` | **Sí*** | Uno o varios vídeos de apoyo/informativo (puede ser orientativo si no hay material propio). |
+| `video` | `VideoItem` | Compat. | Alternativa de compatibilidad para un único vídeo (el frontend también acepta `videos[]`). |
 | `contentHtml` | string | Recomendado | Cuerpo HTML de la descripción. |
 | `tags` | string[] | Opcional | Etiquetas. |
 | `cta` | `{label,url}` | Opcional | Acción principal. |
 | `animal` | `AnimalFicha` | Condicional | Presente cuando `type="animal"`. |
 | `event` | `EventHito` | Condicional | Presente cuando `type="evento"`. |
 
-\* En el esquema normalizado de `nueva-version`, las publicaciones de acogida/adopciones **siempre** deben exponer `icons`, `gallery` (carrusel) y `video`. Si falta contenido real, se añade contenido de apoyo/orientativo.
+\* En el esquema normalizado de `nueva-version`, las publicaciones de acogida/adopciones **siempre** deben exponer `icons`, `gallery` (carrusel) y `videos` (o `video` por compatibilidad). Se admite **uno o varios vídeos** (habitualmente pocos). Si falta contenido real, se añade contenido de apoyo/orientativo.
 
 ### Subestructuras comunes
 
@@ -115,7 +116,7 @@ Campos comunes para que todas las publicaciones de acogida/adopciones mantengan 
 ```
 - Rutas pueden ser relativas al sitio/datos (`assets/images/...`) y el frontend las normaliza según contexto.
 
-**VideoItem**
+**VideoItem** (`videos[]`, recomendado; también se acepta `video` único por compatibilidad)
 ```json
 {
   "title": "Vídeo orientativo",
@@ -125,6 +126,13 @@ Campos comunes para que todas las publicaciones de acogida/adopciones mantengan 
   "durationSec": null,
   "note": "Texto aclaratorio opcional"
 }
+```
+Ejemplo con varios vídeos:
+```json
+"videos": [
+  { "title": "Presentación", "provider": "youtube", "url": "https://www.youtube-nocookie.com/embed/..." },
+  { "title": "Evolución", "provider": "youtube", "url": "https://www.youtube-nocookie.com/embed/...", "note": "Vídeo de apoyo" }
+]
 ```
 
 ---
@@ -234,11 +242,14 @@ Para compatibilidad con el sitio estático actual, las publicaciones relacionada
     "type": "acogida | gato | perro | adoptado | externo",
     "icons": [{ "icon": "", "label": "", "value": "" }],
     "gallery": [{ "src": "assets/images/...", "alt": "", "caption": "" }],
-    "video": { "title": "", "url": "https://...", "provider": "youtube", "note": "" },
+    "videos": [
+      { "title": "", "url": "https://...", "provider": "youtube", "note": "" }
+    ],
+    "video": { "title": "", "url": "https://...", "provider": "youtube", "note": "" }, /* compatibilidad */
     "inventedContent": { "gallery": true, "video": true, "icons": true }
   }
 }
 ```
 
-- El render de detalle (`nueva-version/js/blog-render.js`) muestra **iconos**, **carrusel de imágenes** y **vídeo** cuando existe `publication`, de forma responsive en escritorio y móvil.
+- El render de detalle (`nueva-version/js/blog-render.js`) muestra **iconos**, **carrusel de imágenes** y **vídeo(s)** cuando existe `publication`, de forma responsive en escritorio y móvil (soporta `videos[]` y `video` único).
 - El ejemplo completo de respuesta de endpoint se encuentra en `data/api-ejemplos/publicaciones-endpoint-ejemplo.json`.

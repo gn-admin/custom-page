@@ -799,3 +799,13 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
   .post-sheet--ficha .post-facts-grid { grid-template-columns: 1fr; }
   .post-sheet--ficha .post-fact-card { grid-template-columns: 44px 1fr; }
 }
+.post-videos { display: grid; gap: .75rem; }
+.post-videos--multi { grid-template-columns: 1fr; }
+.post-video-item { display: grid; gap: .35rem; min-width: 0; }
+.post-video-title { font-size: .95rem; margin: 0; color: var(--ink); }
+@media (min-width: 900px) {
+  .post-videos--multi { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .7rem; }
+}
+@media (max-width: 719px) {
+  .post-videos--multi { gap: .7rem; }
+}

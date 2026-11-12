@@ -68,13 +68,29 @@
         { "src": "assets/images/nueva/gato-refugio.jpg", "alt": "Descanso y cuidados", "caption": "Momento y contexto (2)", "order": 3 },
         { "src": "assets/images/nueva/gato-carino.jpg", "alt": "Interacción y socialización", "caption": "Momento y contexto (3)", "order": 4 }
       ],
+      "videos": [
+        {
+          "title": "Vídeo: adopción y cuidado responsable",
+          "provider": "youtube",
+          "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
+          "thumbnail": null,
+          "durationSec": null,
+          "note": "Vídeo orientativo de apoyo."
+        },
+        {
+          "title": "Vídeo: convivencia y adaptación en casa",
+          "provider": "youtube",
+          "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
+          "note": "Ejemplo de publicación con varios vídeos (no habitual, pero soportado)."
+        }
+      ],
       "video": {
         "title": "Vídeo: adopción y cuidado responsable",
         "provider": "youtube",
         "url": "https://www.youtube-nocookie.com/embed/J---aiyznGQ",
         "thumbnail": null,
         "durationSec": null,
-        "note": "Vídeo orientativo de apoyo."
+        "note": "Compatibilidad: campo video único."
       },
       "contentHtml": "<p>Descripción completa de la publicación...</p>",
       "tags": ["Gatos", "Gatos en adopción", "2026"],

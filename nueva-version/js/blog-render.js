@@ -77,15 +77,29 @@
     '</section>';
   }
 
+  function getVideos(pub) {
+    if (!pub) return [];
+    if (Array.isArray(pub.videos)) return pub.videos.filter(function (v) { return v && v.url; });
+    if (pub.video && pub.video.url) return [pub.video];
+    return [];
+  }
+
   function renderVideo(pub) {
-    var v = pub && pub.video;
-    if (!v || !v.url) return '';
-    var safeUrl = esc(v.url);
-    var title = esc(v.title || 'Vídeo de la publicación');
-    var note = v.note ? '<p class="post-video-note">' + esc(v.note) + '</p>' : '';
-    return '<section class="post-section post-media-block" aria-label="Vídeo">' +
-      '<div class="section-head section-head--compact"><h2>Vídeo</h2></div>' +
-      '<div class="post-video"><div class="post-video-frame"><iframe src="' + safeUrl + '" title="' + title + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>' + note + '</div>' +
+    var videos = getVideos(pub);
+    if (!videos.length) return '';
+    var items = videos.map(function (v, i) {
+      var safeUrl = esc(v.url);
+      var title = esc(v.title || ('Vídeo ' + (i + 1)));
+      var note = v.note ? '<p class="post-video-note">' + esc(v.note) + '</p>' : '';
+      return '<div class="post-video-item">' +
+        (videos.length > 1 && v.title ? '<h3 class="post-video-title">' + esc(v.title) + '</h3>' : '') +
+        '<div class="post-video-frame"><iframe src="' + safeUrl + '" title="' + title + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>' +
+        note + '</div>';
+    }).join('');
+    var heading = videos.length > 1 ? 'Vídeos' : 'Vídeo';
+    return '<section class="post-section post-media-block" aria-label="' + heading + '">' +
+      '<div class="section-head section-head--compact"><h2>' + heading + '</h2></div>' +
+      '<div class="post-videos' + (videos.length > 1 ? ' post-videos--multi' : '') + '">' + items + '</div>' +
     '</section>';
   }
 
@@ -155,8 +169,10 @@
         '</header>'
       );
 
+      var hasGallery = pub && Array.isArray(pub.gallery) && pub.gallery.length;
+      var hasVideos = getVideos(pub).length > 0;
       var mediaBlocks = '';
-      if (ficha && pub && pub.gallery && pub.video) {
+      if (ficha && hasGallery && hasVideos) {
         mediaBlocks = '<div class="post-media-grid">' + renderGallery(pub) + renderVideo(pub) + '</div>';
       } else {
         mediaBlocks = renderGallery(pub) + renderVideo(pub);
