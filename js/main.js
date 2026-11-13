@@ -115,6 +115,30 @@
     var current = 0;
     var timer = null;
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dotsWrap = null;
+
+    function ensureDots() {
+      if (dotsWrap || slides.length < 2) return;
+      dotsWrap = document.createElement('div');
+      dotsWrap.className = 'slider-dots';
+      dotsWrap.setAttribute('aria-label', 'Indicadores del carrusel');
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slider-dot';
+        b.setAttribute('aria-label', 'Ir a la imagen ' + (i + 1));
+        b.addEventListener('click', function () { showSlide(i); stopTimer(); startTimer(); });
+        dotsWrap.appendChild(b);
+      });
+      slider.appendChild(dotsWrap);
+    }
+
+    function updateDots() {
+      if (!dotsWrap) return;
+      $$('.slider-dot', dotsWrap).forEach(function (dot, i) {
+        if (i === current) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
+      });
+    }
 
     function showSlide(index) {
       if (!slides.length) return;
@@ -124,6 +148,7 @@
         slide.classList.toggle('is-active', active);
         slide.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
+      updateDots();
     }
 
     function nextSlide() { showSlide(current + 1); }
@@ -137,7 +162,6 @@
       if (timer) { window.clearInterval(timer); timer = null; }
     }
 
-
     slider.addEventListener('mouseenter', stopTimer);
     slider.addEventListener('mouseleave', startTimer);
     slider.addEventListener('focusin', stopTimer);
@@ -147,6 +171,7 @@
       if (event.key === 'ArrowRight') { nextSlide(); stopTimer(); startTimer(); }
     });
 
+    ensureDots();
     showSlide(0);
     startTimer();
   }
