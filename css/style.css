@@ -2598,53 +2598,53 @@ p { margin: 0 0 1.1em; }
     height: 395px;
   }
 }
-/* Protocolo: escritorio (raíz) alineado al sitio real */
+/* Protocolo: escritorio (raíz) replicando distribución de gruponebak.net/protocolo */
 @media (min-width: 1024px) {
   .page-protocolo .page-banner {
-    width: 100%;
-    max-width: 100%;
-    height: 560px;
-    margin: 0;
-    object-fit: cover;
     display: block;
+    width: 100%;
+    max-width: 985px;
+    height: 560px;
+    margin: 0 auto;
+    object-fit: cover;
   }
   .page-protocolo .page-hero {
     height: auto;
-    padding: 36px 0 16px;
+    padding: 35px 0 20px;
     text-align: center;
   }
-  .page-protocolo .page-hero .container {
-    width: min(980px, calc(100% - 32px));
-    max-width: none;
+  .page-protocolo .page-hero .container,
+  .page-protocolo .page-hero__inner {
+    width: min(985px, calc(100% - 32px));
+    max-width: 985px;
     margin: 0 auto;
     padding: 0;
   }
-  .page-protocolo .page-hero__inner { width: auto; max-width: 920px; margin: 0 auto; }
   .page-protocolo .page-hero h1 {
     margin: 0 auto 8px;
     color: var(--black);
     font-size: 50px;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.34;
   }
   .page-protocolo .page-hero p {
-    max-width: 920px;
     margin: 0 auto;
+    max-width: 920px;
     color: var(--black);
     font-size: 20px;
-    line-height: 1.8;
+    line-height: 1.875;
   }
-  .page-protocolo main > section.section:not(.section--pale) { padding: 24px 0 60px; }
+  .page-protocolo main > section.section:not(.section--pale) { padding: 0 0 40px; }
   .page-protocolo main > section.section:not(.section--pale) > .container {
-    width: min(980px, calc(100% - 32px));
-    max-width: none;
+    width: 100%;
+    max-width: 985px;
     margin: 0 auto;
     padding: 0;
   }
   .page-protocolo .steps {
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    gap: 0;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -2652,70 +2652,78 @@ p { margin: 0 0 1.1em; }
   .page-protocolo .step,
   .page-protocolo .step--commitment {
     display: grid;
-    grid-template-columns: 378px minmax(0, 1fr);
-    grid-template-areas:
-      "img num"
-      "img copy";
-    column-gap: 60px;
-    row-gap: 8px;
+    grid-template-columns: 378px 401px;
+    column-gap: 61px;
     align-items: start;
+    justify-content: start;
+    width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 81px 0 0 44px;
+    box-sizing: border-box;
+    min-height: 510px;
     border: 0;
   }
+  .page-protocolo .step:nth-child(2) { padding-top: 86px; min-height: 655px; grid-template-columns: 402px 378px; column-gap: 119px; padding-left: 44px; }
+  .page-protocolo .step:nth-child(3) { padding-top: 63px; min-height: 542px; }
+  .page-protocolo .step--commitment { padding-top: 83px; min-height: 450px; grid-template-columns: 402px 378px; column-gap: 119px; padding-left: 44px; }
   .page-protocolo .step__image {
-    grid-area: img;
     display: block;
     width: 378px;
     height: 283px;
     object-fit: cover;
     margin: 0;
+    grid-column: 1;
+    grid-row: 1 / span 2;
   }
   .page-protocolo .step:nth-child(4) .step__image { height: 282px; }
+  .page-protocolo .step:nth-child(2) .step__image,
+  .page-protocolo .step--commitment .step__image { grid-column: 2; grid-row: 1 / span 2; }
   .page-protocolo .step__num {
-    grid-area: num;
-    margin: 0;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 10px 0 17px;
     color: var(--black);
+    font-family: var(--font-head);
     font-size: 30px;
     font-weight: 400;
     line-height: 1.2;
   }
-  .page-protocolo .step__copy { grid-area: copy; }
+  .page-protocolo .step__copy {
+    grid-column: 2;
+    grid-row: 2;
+    width: 401px;
+  }
+  .page-protocolo .step:nth-child(2) .step__num,
+  .page-protocolo .step:nth-child(2) .step__copy { grid-column: 1; width: 402px; }
+  .page-protocolo .step--commitment .step__copy { grid-column: 1; grid-row: 1 / span 2; width: 402px; padding-top: 75px; }
   .page-protocolo .step h2 {
-    margin: 0 0 14px;
+    margin: 0 0 18px;
     color: var(--black);
+    font-family: var(--font-head);
     font-size: 30px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.23;
   }
+  .page-protocolo .step:nth-child(2) h2 { margin-bottom: 26px; }
+  .page-protocolo .step:nth-child(3) h2 { margin-bottom: 14px; }
+  .page-protocolo .step--commitment h2 { margin-bottom: 26px; }
   .page-protocolo .step p {
     margin: 0 0 10px;
     color: var(--black);
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 28.8px;
   }
   .page-protocolo .step:nth-child(2) p,
-  .page-protocolo .step:nth-child(3) p { font-size: 18px; line-height: 1.75; }
-  /* Alternancia: paso 2 y compromiso con imagen a la derecha (como en el real) */
-  .page-protocolo .step:nth-child(2),
-  .page-protocolo .step--commitment {
-    grid-template-columns: minmax(0, 1fr) 378px;
-    grid-template-areas:
-      "num img"
-      "copy img";
-  }
-  .page-protocolo .step--commitment {
-    grid-template-areas:
-      "copy img"
-      "copy img";
-  }
+  .page-protocolo .step:nth-child(3) p { font-size: 18px; line-height: 31.5px; }
+  .page-protocolo .step--commitment p { font-size: 16px; line-height: 28.8px; }
   .page-protocolo .protocol-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     min-width: 169px;
     height: 45px;
-    margin-top: 8px;
+    margin-top: 6px;
     padding: 0 20px;
     border: 1px solid #1fc95b;
     border-radius: 25px;
