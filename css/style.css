@@ -513,7 +513,8 @@ p { margin: 0 0 1.1em; }
   cursor: pointer;
 }
 .slider-dot[aria-current="true"] { background: var(--black); }
-.slider-arrow, .slider-dots { display: none !important; }
+.slider-arrow { display: none !important; }
+.slider-dots { display: flex; }
 
 .home-intro {
   padding: 64px 0 135px;
@@ -1335,7 +1336,7 @@ p { margin: 0 0 1.1em; }
   }
   .header-inner {
     position: relative;
-    width: 320px;
+    width: 100%;
     height: 103px;
     display: block;
   }
@@ -1432,7 +1433,7 @@ p { margin: 0 0 1.1em; }
   }
 
   /* Home: hero y bloque introductorio */
-  .hero-slider { width: 320px; height: 240px; }
+  .hero-slider { width: 100%; height: 240px; }
   .slider-arrow { width: 28px; height: 28px; font-size: 18px; }
   .slider-arrow--prev { left: 6px; }
   .slider-arrow--next { right: 6px; }
@@ -1560,17 +1561,19 @@ p { margin: 0 0 1.1em; }
   .contact-form { padding: 10px 0 42px; }
   .contact-form .btn { width: 300px; height: 50px; }
   .home-contact .contact-form .btn { margin-top: 0; margin-bottom: 0; }
-  .map-wrap, .home-map { width: 320px; margin: 0 auto; padding: 0 0 20px; }
-  .map-wrap iframe, .home-map iframe { width: 320px; height: 240px; }
+  .map-wrap, .home-map { width: 100%; margin: 0 auto; padding: 0 0 20px; }
+  .map-wrap iframe, .home-map iframe { width: 100%; height: 240px; }
 
-  /* Footer de 320x218 con datos y redes centrados */
+  /* Footer móvil fluido */
   .site-footer {
     margin-top: 0;
-    padding: 28px 0 3px;
-    width: 320px;
+    padding: 28px 16px 3px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .footer-inner {
-    width: 300px;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
