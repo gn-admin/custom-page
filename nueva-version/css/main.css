@@ -445,7 +445,7 @@ input:focus, textarea:focus { border-color: var(--brand); outline: none; box-sha
   radial-gradient(420px 180px at 85% 0%, rgba(31,191,91,.14), transparent 70%),
   linear-gradient(180deg, #f3fbf6 0%, #f8fcfa 60%, var(--bg) 100%);
   border-bottom: 1px solid rgba(223,232,226,.7); position: relative; overflow: hidden; }
-.page-hero::before { content: none; }
+.page-hero::before { content:""; position:absolute; left: max(1.25rem, calc(50% - 580px)); top: 1.4rem; width: 54px; height: 54px; border-radius: 18px; background: rgba(31,191,91,.12); transform: rotate(8deg); }
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero h1 { max-width: 18ch; }
 .breadcrumbs { font-size: .9rem; color: var(--muted); margin-bottom: .6rem; }
@@ -638,7 +638,7 @@ body.has-cookie .chat-widget { bottom: 6.5rem; }
 @media (max-width: 719px) {
   .page-hero { padding: 2rem 0 1.4rem; }
   .page-hero h1 { max-width: 100%; }
-  .page-hero::before { content: none; }
+  .page-hero::before { left: 1rem; top: .8rem; width: 40px; height: 40px; border-radius: 14px; }
   .hero::before { width: 320px; height: 320px; right: -140px; top: -120px; }
   .hero::after { width: 180px; height: 180px; left: -60px; bottom: -60px; }
   .impact-band { grid-template-columns: 1fr; }
