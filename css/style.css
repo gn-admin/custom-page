@@ -1798,8 +1798,9 @@ p { margin: 0 0 1.1em; }
     height: auto;
     aspect-ratio: 4 / 3;
     margin: 0 -16px;
+    order: 3;
     object-fit: cover;
-  }
+    order: 3;
   .page-protocolo .step__num {
     width: auto;
     margin: 0;
@@ -1807,7 +1808,10 @@ p { margin: 0 0 1.1em; }
     font-size: 28px;
     line-height: 1.1;
     font-family: var(--font-head);
-  }
+    order: 1;
+    order: 1;
+  .page-protocolo .step__copy { order: 2; }
+  .page-protocolo .step__copy { order: 2; }
   .page-protocolo .step h2 {
     width: auto;
     margin: 0 0 10px;
