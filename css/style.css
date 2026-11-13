@@ -1321,11 +1321,11 @@ p { margin: 0 0 1.1em; }
   main,
   .site-header,
   .site-footer {
-    width: 320px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  .container { width: 300px; max-width: 300px; }
+  .container { width: 100%; max-width: 100%; padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
 
   /* Header: 103 px, logo 40 px centrado y hamburguesa 40 px */
   .site-header {
