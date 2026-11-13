@@ -1739,7 +1739,7 @@ p { margin: 0 0 1.1em; }
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   /* Protocolo (raíz): layout fluido como home */
   .page-protocolo .page-banner {
     width: 100%;
