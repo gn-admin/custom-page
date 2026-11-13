@@ -2423,24 +2423,7 @@ p { margin: 0 0 1.1em; }
   position: relative;
   z-index: 1;
 }
-.page-about .about-hero-visual {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.page-about .about-hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.72);
-}
-.page-about .about-hero-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 38%;
-}
+.page-about .about-hero-visual { display: none; }
 .page-about .site-header .main-nav > ul::after {
   display: none;
 }
