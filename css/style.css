@@ -1,6 +1,6 @@
-/* ==========================================================================
-   Grupo Nebak — réplica fiel del sitio Wix original
-   Lienzo 980 px · Montserrat + Avenir · verde #53A142 · bordes #BFBFBF
+﻿/* ==========================================================================
+   Grupo Nebak â€” rÃ©plica fiel del sitio Wix original
+   Lienzo 980 px Â· Montserrat + Avenir Â· verde #53A142 Â· bordes #BFBFBF
    ========================================================================== */
 
 :root {
@@ -76,7 +76,7 @@ p { margin: 0 0 1.1em; }
 .skip-link:focus { left: 8px; top: 8px; }
 
 /* --------------------------------------------------------------------------
-   Header original: logo centrado, línea y navegación debajo
+   Header original: logo centrado, lÃ­nea y navegaciÃ³n debajo
    -------------------------------------------------------------------------- */
 
 .site-header {
@@ -243,7 +243,7 @@ p { margin: 0 0 1.1em; }
   cursor: pointer;
 }
 
-/* Menú móvil */
+/* MenÃº mÃ³vil */
 .menu-backdrop {
   position: fixed;
   inset: 0;
@@ -308,7 +308,7 @@ p { margin: 0 0 1.1em; }
 }
 .m-toggle { display: flex; justify-content: space-between; align-items: center; }
 .m-toggle::after { content: "+"; font-size: 17px; color: var(--muted); }
-.m-toggle[aria-expanded="true"]::after { content: "−"; }
+.m-toggle[aria-expanded="true"]::after { content: "âˆ’"; }
 
 .m-sub {
   display: none;
@@ -692,7 +692,7 @@ p { margin: 0 0 1.1em; }
 }
 
 /* --------------------------------------------------------------------------
-   Páginas interiores
+   PÃ¡ginas interiores
    -------------------------------------------------------------------------- */
 
 .page-banner {
@@ -761,7 +761,7 @@ p { margin: 0 0 1.1em; }
   padding-left: 18px;
 }
 .check-list li::before {
-  content: "·";
+  content: "Â·";
   position: absolute;
   left: 0;
   top: -1px;
@@ -926,7 +926,7 @@ p { margin: 0 0 1.1em; }
   font-size: 14px;
 }
 
-/* Bloques auxiliares de las páginas interiores */
+/* Bloques auxiliares de las pÃ¡ginas interiores */
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1206,7 +1206,7 @@ p { margin: 0 0 1.1em; }
 }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
-/* Páginas legales */
+/* PÃ¡ginas legales */
 .legal {
   max-width: 760px;
   margin: 0 auto;
@@ -1313,7 +1313,7 @@ p { margin: 0 0 1.1em; }
 }
 
 /* --------------------------------------------------------------------------
-   Móvil fiel a Wix: lienzo de 320 px
+   MÃ³vil fiel a Wix: lienzo de 320 px
    -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
@@ -1379,7 +1379,7 @@ p { margin: 0 0 1.1em; }
     box-shadow: 0 -7px 0 var(--black), 0 7px 0 var(--black);
   }
 
-  /* Menú móvil: overlay blanco completo y columna de 188 px */
+  /* MenÃº mÃ³vil: overlay blanco completo y columna de 188 px */
   .menu-backdrop { display: none; }
   .mobile-menu {
     top: 0;
@@ -1501,7 +1501,7 @@ p { margin: 0 0 1.1em; }
     text-decoration: none;
   }
 
-  /* Eventos: solo las dos tarjetas que muestra Wix en móvil */
+  /* Eventos: solo las dos tarjetas que muestra Wix en mÃ³vil */
   .home-events { margin-top: -11px; padding: 25px 0 372px; }
   .events-title {
     margin: 0 0 24px;
@@ -1521,7 +1521,7 @@ p { margin: 0 0 1.1em; }
   .event-card__body { padding: 27px 17px 0; }
   .event-card__body h3 { font-size: 22px; line-height: 1.2; }
 
-  /* Contacto: formulario de 300 px, datos después y mapa de 240 px */
+  /* Contacto: formulario de 300 px, datos despuÃ©s y mapa de 240 px */
   .home-contact { margin-top: 47px; padding: 10px 0 0; }
   .home-contact > .container { width: 300px; padding-top: 0; padding-bottom: 0; }
   .home-contact > .container > h2 {
@@ -1568,7 +1568,7 @@ p { margin: 0 0 1.1em; }
   .map-wrap, .home-map { width: 100%; margin: 0 auto; padding: 0 0 20px; }
   .map-wrap iframe, .home-map iframe { width: 100%; height: 240px; }
 
-  /* Footer móvil fluido */
+  /* Footer mÃ³vil fluido */
   .site-footer {
     margin-top: 0;
     padding: 28px 16px 3px;
@@ -1611,7 +1611,7 @@ p { margin: 0 0 1.1em; }
     line-height: 21px;
   }
 
-  /* Interiores: mismas medida y apilado que el móvil de Wix */
+  /* Interiores: mismas medida y apilado que el mÃ³vil de Wix */
   .page-banner {
     width: 320px;
     height: 240px;
@@ -1646,7 +1646,7 @@ p { margin: 0 0 1.1em; }
 }
 
 @media (max-width: 767px) {
-  /* Sobre nosotros: dos secciones con una imagen al pie, como Wix móvil */
+  /* Sobre nosotros: dos secciones con una imagen al pie, como Wix mÃ³vil */
   .page-about .page-hero {
     display: block;
     height: 312px;
@@ -1740,103 +1740,99 @@ p { margin: 0 0 1.1em; }
 }
 
 @media (max-width: 767px) {
-  /* Protocolo: cuatro bloques con imagen, como el móvil de Wix */
-  .page-protocolo .page-banner { height: 213px; }
-  .page-protocolo .page-hero {
-    height: 234px;
-    padding: 10px 0 0;
+  /* Protocolo (raíz): layout fluido como home */
+  .page-protocolo .page-banner {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    object-fit: cover;
+    display: block;
   }
-  .page-protocolo .page-hero__inner { width: 280px; }
+  .page-protocolo .page-hero {
+    height: auto;
+    padding: 32px 0 20px;
+    text-align: center;
+  }
+  .page-protocolo .page-hero__inner { width: 100%; max-width: 100%; margin: 0 auto; }
   .page-protocolo .page-hero h1 {
-    width: 280px;
+    width: auto;
     margin: 0 auto 10px;
-    font-size: 26px;
-    line-height: 34.84px;
+    font-size: 28px;
+    line-height: 1.2;
     text-align: center;
   }
   .page-protocolo .page-hero p {
-    width: 280px;
-    max-width: 280px;
+    width: auto;
+    max-width: 100%;
     margin: 0 auto;
-    font-family: "Avenir LT Light", sans-serif;
-    font-size: 17px;
-    line-height: 31.875px;
-    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
     white-space: normal;
   }
-  .page-protocolo .section { padding: 0; }
-  .page-protocolo .section .container { width: 280px; }
+  .page-protocolo .section { padding: 20px 0 10px; }
+  .page-protocolo .section .container { width: 100%; max-width: 100%; }
   .page-protocolo .steps {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 28px;
     margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .page-protocolo .step {
-    display: flex;
-    flex-direction: column;
-    height: 764px;
-    padding: 40px 0 0;
-    border: 0;
-  }
-  .page-protocolo .step:nth-child(2) { height: 825px; }
-  .page-protocolo .step:nth-child(3) { height: 699px; }
+  .page-protocolo .step,
   .page-protocolo .step--commitment {
     display: flex;
-    height: 568px;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    border: 0;
+    gap: 12px;
   }
   .page-protocolo .step__image {
     display: block;
-    width: 280px;
-    height: 170px;
-    margin: 0;
+    width: calc(100% + 32px);
+    max-width: none;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin: 0 -16px;
     object-fit: cover;
   }
   .page-protocolo .step__num {
-    width: 280px;
-    margin: 42px 0 10px;
-    color: var(--black);
-    font-size: 32px;
-    line-height: normal;
-  }
-  .page-protocolo .step:nth-child(2) .step__num,
-  .page-protocolo .step:nth-child(3) .step__num { margin-top: 40px; }
-  .page-protocolo .step h2 {
-    width: 280px;
-    margin: 0 0 20px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-  .page-protocolo .step:nth-child(1) h2 { margin-bottom: 11px; }
-  .page-protocolo .step p {
-    width: 280px;
+    width: auto;
     margin: 0;
-    font-family: "Avenir LT Heavy", sans-serif;
+    color: var(--green);
+    font-size: 28px;
+    line-height: 1.1;
+    font-family: var(--font-head);
+  }
+  .page-protocolo .step h2 {
+    width: auto;
+    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+  .page-protocolo .step p {
+    width: auto;
+    margin: 0 0 10px;
     font-size: 16px;
-    line-height: 28.8px;
+    line-height: 1.7;
   }
-  .page-protocolo .step:nth-child(1) p { width: 268px; }
-  .page-protocolo .step:nth-child(2) p,
-  .page-protocolo .step:nth-child(3) p {
-    width: 280px;
-    font-size: 18px;
-    line-height: 31.5px;
-  }
-  .page-protocolo .step--commitment h2 { margin-top: 50px; }
   .page-protocolo .protocol-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    width: 160px;
+    min-width: 160px;
     height: 42px;
-    margin: 16px auto 0;
-    padding: 0;
-    border: 0.8px solid #1fc95b;
+    margin: 4px 0 0;
+    padding: 0 18px;
+    border: 1px solid #1fc95b;
     border-radius: 21px;
     background: var(--white);
     color: #1fc95b;
-    font-family: "Avenir LT Light", sans-serif;
     font-size: 15px;
     font-weight: 700;
     line-height: 1;
@@ -1846,7 +1842,7 @@ p { margin: 0 0 1.1em; }
 }
 
 @media (max-width: 767px) {
-  /* Contacto: título, formulario y mapa, como el móvil de Wix */
+  /* Contacto: tÃ­tulo, formulario y mapa, como el mÃ³vil de Wix */
   .page-contact .page-hero {
     height: 109px;
     padding: 45px 0 0;
@@ -1946,7 +1942,7 @@ p { margin: 0 0 1.1em; }
   .page-contact .map-wrap { width: 100%; height: 240px; }
   .page-contact .map-wrap iframe { display: block; width: 100%; height: 240px; }
 
-  /* Acogidas: estructura real de Wix en móvil */
+  /* Acogidas: estructura real de Wix en mÃ³vil */
   .page-acogidas .page-hero {
     height: 76px;
     padding: 20px 0 0;
@@ -2461,7 +2457,7 @@ p { margin: 0 0 1.1em; }
   }
 }
 
-/* Contacto: composición de escritorio de Wix (660 px + mapa de 400 px) */
+/* Contacto: composiciÃ³n de escritorio de Wix (660 px + mapa de 400 px) */
 @media (min-width: 1025px) {
   .page-contact main { position: relative; }
   .page-contact .page-hero {
@@ -2599,11 +2595,11 @@ p { margin: 0 0 1.1em; }
   }
 }
 
-/* Protocolo: menú y footer en armonía con la home (raíz) */
+/* Protocolo: menÃº y footer en armonÃ­a con la home (raÃ­z) */
 
 /* Protocolo: banner completo y cuatro filas alternas de Wix */
 @media (min-width: 1025px) {
-  /* Protocolo (raíz): layout responsive con márgenes como home */
+  /* Protocolo (raÃ­z): layout responsive con mÃ¡rgenes como home */
   .page-protocolo .page-banner {
     width: min(var(--site), calc(100% - 32px));
     max-width: 100%;
@@ -2679,7 +2675,7 @@ p { margin: 0 0 1.1em; }
   .page-protocolo .step > div { position: static; width: auto; margin: 0; padding: 0; }
   .page-protocolo .step h2 { width: auto; margin: 0 0 12px; font-size: 30px; font-weight: 500; line-height: 1.2; }
   .page-protocolo .step p { width: auto; margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
-  /* Alternancia visual: paso 2 y compromiso con imagen a la derecha (según orden real) */
+  /* Alternancia visual: paso 2 y compromiso con imagen a la derecha (segÃºn orden real) */
   .page-protocolo .step:nth-child(2),
   .page-protocolo .step--commitment { grid-template-columns: 1fr minmax(280px, 420px); }
   .page-protocolo .step:nth-child(2) .step__image,
@@ -2706,7 +2702,7 @@ p { margin: 0 0 1.1em; }
   .page-protocolo .site-header .main-nav > ul::after { display: none; }
 }
 
-/* Acogidas: composición de escritorio de Wix */
+/* Acogidas: composiciÃ³n de escritorio de Wix */
 @media (min-width: 1025px) {
   .page-acogidas .page-hero {
     height: 199px;
@@ -2935,7 +2931,7 @@ p { margin: 0 0 1.1em; }
   }
 }
 
-/* Home: «Acerca de» a ancho completo con verde a la izquierda y contacto con fondo completo */
+/* Home: Â«Acerca deÂ» a ancho completo con verde a la izquierda y contacto con fondo completo */
 @media (min-width: 901px) {
   .home-about {
     width: 100%;
@@ -3059,7 +3055,7 @@ p { margin: 0 0 1.1em; }
 }
 
 /* --------------------------------------------------------------------------
-   Hazte socio / voluntario: composición de la página original
+   Hazte socio / voluntario: composiciÃ³n de la pÃ¡gina original
    -------------------------------------------------------------------------- */
 
 .page-socio { background: var(--white); }
@@ -3434,7 +3430,7 @@ p { margin: 0 0 1.1em; }
 }
 
 /* --------------------------------------------------------------------------
-   Acoge: relato editorial con fotografía y contacto verde
+   Acoge: relato editorial con fotografÃ­a y contacto verde
    -------------------------------------------------------------------------- */
 
 .page-acoge { background: var(--white); }
