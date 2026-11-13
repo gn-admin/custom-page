@@ -2599,49 +2599,48 @@ p { margin: 0 0 1.1em; }
 
 /* Protocolo: banner completo y cuatro filas alternas de Wix */
 @media (min-width: 1025px) {
-  /* Protocolo (raÃ­z): layout responsive con mÃ¡rgenes como home */
+  /* Protocolo (raíz): escritorio alineado al sitio real, coherente con home */
   .page-protocolo .page-banner {
-    width: min(var(--site), calc(100% - 32px));
+    width: 100%;
     max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 7;
-    margin: 20px auto 0;
+    height: 560px;
+    margin: 0;
     object-fit: cover;
     display: block;
   }
   .page-protocolo .page-hero {
     height: auto;
-    padding: 48px 0 24px;
+    padding: 36px 0 12px;
     text-align: center;
   }
-  .page-protocolo .page-hero .container { width: min(var(--site), calc(100% - 32px)); max-width: none; margin: 0 auto; padding: 0; }
-  .page-protocolo .page-hero__inner { width: auto; max-width: 900px; margin: 0 auto; }
+  .page-protocolo .page-hero .container { width: min(980px, calc(100% - 32px)); max-width: none; margin: 0 auto; padding: 0; }
+  .page-protocolo .page-hero__inner { width: auto; max-width: 920px; margin: 0 auto; }
   .page-protocolo .page-hero h1 {
     width: auto;
-    margin: 0 auto 10px;
+    margin: 0 auto 8px;
     color: var(--black);
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.25;
   }
   .page-protocolo .page-hero p {
     width: auto;
-    max-width: 800px;
+    max-width: 920px;
     margin: 0 auto;
     color: var(--black);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.7;
     white-space: normal;
   }
-  .page-protocolo main > section.section:not(.section--pale) { height: auto; padding: 30px 0 50px; }
-  .page-protocolo main > section.section:not(.section--pale) > .container { width: min(var(--site), calc(100% - 32px)); max-width: none; margin: 0 auto; padding: 0; height: auto; }
+  .page-protocolo main > section.section:not(.section--pale) { height: auto; padding: 20px 0 50px; }
+  .page-protocolo main > section.section:not(.section--pale) > .container { width: min(980px, calc(100% - 32px)); max-width: none; margin: 0 auto; padding: 0; height: auto; }
   .page-protocolo .steps {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 90px;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 20px 0 0;
     list-style: none;
     height: auto;
   }
@@ -2649,9 +2648,11 @@ p { margin: 0 0 1.1em; }
   .page-protocolo .step--commitment {
     position: static;
     display: grid;
-    grid-template-columns: minmax(280px, 420px) 1fr;
-    gap: 28px 36px;
+    grid-template-columns: 378px 401px;
+    column-gap: 60px;
+    row-gap: 8px;
     align-items: start;
+    justify-content: center;
     width: 100%;
     height: auto;
     margin: 0;
@@ -2662,24 +2663,28 @@ p { margin: 0 0 1.1em; }
   .page-protocolo .step__image {
     position: static;
     display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    width: 378px;
+    height: 283px;
     object-fit: cover;
     margin: 0;
     grid-column: 1;
     grid-row: 1 / span 3;
   }
-  .page-protocolo .step__num { position: static; width: auto; margin: 0; color: var(--green); font-size: 32px; line-height: 1; }
+  .page-protocolo .step:nth-child(4) .step__image { height: 282px; }
+  .page-protocolo .step__num { position: static; width: auto; margin: 0 0 4px; color: var(--black); font-size: 32px; line-height: 1.2; }
   .page-protocolo .step__copy,
-  .page-protocolo .step > div { position: static; width: auto; margin: 0; padding: 0; }
-  .page-protocolo .step h2 { width: auto; margin: 0 0 12px; font-size: 30px; font-weight: 500; line-height: 1.2; }
+  .page-protocolo .step > div { position: static; width: 401px; margin: 0; padding: 0; }
+  .page-protocolo .step h2 { width: auto; margin: 0 0 14px; font-size: 30px; font-weight: 400; line-height: 1.2; }
   .page-protocolo .step p { width: auto; margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
-  /* Alternancia visual: paso 2 y compromiso con imagen a la derecha (segÃºn orden real) */
+  .page-protocolo .step:nth-child(2) p,
+  .page-protocolo .step:nth-child(3) p { font-size: 18px; line-height: 1.75; }
   .page-protocolo .step:nth-child(2),
-  .page-protocolo .step--commitment { grid-template-columns: 1fr minmax(280px, 420px); }
+  .page-protocolo .step--commitment { grid-template-columns: 401px 378px; }
   .page-protocolo .step:nth-child(2) .step__image,
   .page-protocolo .step--commitment .step__image { grid-column: 2; grid-row: 1 / span 3; }
+  .page-protocolo .step:nth-child(2) .step__num,
+  .page-protocolo .step:nth-child(2) .step__copy,
+  .page-protocolo .step--commitment .step__copy { grid-column: 1; }
   .page-protocolo .protocol-link {
     display: inline-flex;
     align-items: center;
