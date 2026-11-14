@@ -459,3 +459,52 @@
     line-height: 24px;
   }
 }
+
+/* Móvil: fichas diferenciadas (recuadro + separador imagen/texto) */
+@media (max-width: 767px) {
+  .page-acogidas .acogidas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .page-acogidas .acogida-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #e4e4e4;
+    border-radius: 14px;
+    background: var(--white);
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+  }
+  .page-acogidas .acogida-card__media {
+    width: 100%;
+    border-bottom: 3px solid var(--green);
+  }
+  .page-acogidas .acogida-card__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .page-acogidas .acogida-card__body {
+    width: 100%;
+    padding: 18px 16px 22px;
+    box-sizing: border-box;
+  }
+  .page-acogidas .acogida-card__body h3 {
+    font-size: 22px;
+    line-height: 29px;
+  }
+  .page-acogidas .acogida-card__excerpt {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .page-acogidas .acogida-card:last-child {
+    margin-bottom: 0;
+  }
+}
