@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Donaciones | Grupo Nebak</title>
-  <meta name="description" content="Donaciones a Grupo Nebak: aportación puntual, periódica o de empresa. Tu ayuda se destina al cuidado y bienestar de los animales de Irún.">
+  <meta name="description" content="Su apoyo es importante para nuestro trabajo en Grupo Nebak. Hay muchas maneras en que puedes contribuir a nuestras causas, y cada pequeño aporte que haces nos ayuda a cumplir nuestra misión. Obtenga más información sobre cómo puede involucrarse y aproveche la oportunidad de hacer algo bueno.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/donaciones.css?v=20261114b">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-donaciones">
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
 <header class="site-header">
@@ -73,72 +74,77 @@
 
 <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero__inner">
-      
-      <h1>Donaciones</h1>
-      <p>Tu aportación se destina al cuidado de los animales: alimentación, gastos veterinarios y material para las colonias.</p>
-    </div>
+<section class="donaciones-hero" aria-labelledby="donaciones-title">
+  <div class="donaciones-hero__inner">
+    <h1 id="donaciones-title">Donaciones</h1>
+    <div class="donaciones-hero__rule" aria-hidden="true"></div>
+    <p class="donaciones-hero__intro">Su apoyo es importante para nuestro trabajo en Grupo Nebak. Hay muchas maneras en que puedes contribuir a nuestras causas, y cada pequeño aporte que haces nos ayuda a cumplir nuestra misión. Obtenga más información sobre cómo puede involucrarse y aproveche la oportunidad de hacer algo bueno.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-head section-head--center">
-      
-      <h2>Elige cómo quieres ayudar</h2>
-      <p class="lead">Cada aportación, grande o pequeña, tiene un impacto directo en la vida de los animales.</p>
+<section class="donaciones-options" aria-label="Formas de colaborar con Grupo Nebak">
+  <article class="donation-card donation-card--account">
+    <img class="donation-card__icon" src="assets/images/donaciones-cuenta.svg" alt="" width="84" height="56">
+    <h2>dONACIONES</h2>
+    <div class="donation-card__text">
+      <p>Número de cuenta:</p>
+      <p>ES90 3035 0152 1115 2004 9724</p>
     </div>
+  </article>
 
-    <div class="value-grid">
-      <article class="value-card">
-        <span class="value-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.6-7 9-7 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-        <h3>Donación puntual</h3>
-        <p>Una aportación única para cubrir una necesidad concreta: una esterilización, una analítica o una operación.</p>
-        <p class="section-foot"><a class="link-arrow" href="contacto">Quiero donar</a></p>
-      </article>
-
-      <article class="value-card">
-        <span class="value-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 12a8 8 0 108-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-        <h3>Donación periódica</h3>
-        <p>Una cantidad mensual que nos permite planificar el cuidado de las colonias y de los animales en acogida.</p>
-        <p class="section-foot"><a class="link-arrow" href="contacto">Quiero ser donante</a></p>
-      </article>
-
-      <article class="value-card">
-        <span class="value-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 20V9l8-5 8 5v11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-6h6v6" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
-        <h3>Donación de empresa</h3>
-        <p>Colaboración de comercios y empresas locales: patrocinio, material o donación. Podemos estudiar cada propuesta.</p>
-        <p class="section-foot"><a class="link-arrow" href="contacto">Colaborar como empresa</a></p>
-      </article>
+  <article class="donation-card donation-card--teaming">
+    <img class="donation-card__icon" src="assets/images/donaciones-teaming.svg" alt="" width="87" height="87">
+    <h2>TEAMING</h2>
+    <div class="donation-card__text">
+      <p>Puedes hacerte Teamer de nuestro grupo Teaming (1€/mes)</p>
     </div>
+    <a class="donation-card__link" href="https://www.teaming.net/asociaciongruponebak" target="_blank" rel="noopener">Ir a Teaming &gt;</a>
+  </article>
 
-    <p class="note section-foot"><strong>Transparencia:</strong> todas las aportaciones se destinan íntegramente al cuidado de los animales. Si quieres saber en qué se utiliza tu donación, pregúntanos sin compromiso.</p>
-  </div>
+  <article class="donation-card donation-card--socio">
+    <img class="donation-card__icon" src="assets/images/donaciones-socio.svg" alt="" width="62" height="94">
+    <h2>hazte socio</h2>
+    <div class="donation-card__text">
+      <p>Hazte socio por 5€/mes o 60€/año.</p>
+      <p>Para ser socio, rellenar el siguiente formulario</p>
+    </div>
+    <a class="donation-card__link" href="#contactanos">Contáctanos &gt;</a>
+  </article>
+
+  <article class="donation-card donation-card--materiales">
+    <img class="donation-card__icon" src="assets/images/donaciones-materiales.svg" alt="" width="109" height="96">
+    <h2>OTRAS <br>DONACIONES</h2>
+    <div class="donation-card__text">
+      <p>Donación de todo tipo de material de segunda mano para mercadillos.</p>
+      <p aria-hidden="true">&#8203;</p>
+    </div>
+    <a class="donation-card__link" href="https://www.gruponebak.net/_files/ugd/ef25d5_fec001cc571447b29f8d637a410f72d7.pdf" target="_blank" rel="noopener">Ver Materiales &gt;</a>
+  </article>
 </section>
 
-<section class="section section--pale">
-  <div class="container">
-    <div class="split">
-      <div class="split__body">
-        
-        <h2>Escríbenos y te indicamos</h2>
-        <p>Para realizar una donación, escríbenos a <a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a> o llama a cualquiera de nuestros teléfonos. Te indicaremos el método disponible y te agradeceremos tu ayuda personalmente.</p>
-        <ul class="check-list">
-          <li>Donación puntual para una necesidad concreta.</li>
-          <li>Donación periódica para sostener la asociación.</li>
-          <li>Donación de empresa o colaboración local.</li>
-        </ul>
-        <div class="hero__actions section-foot">
-          <a class="btn btn--primary" href="contacto">Contactar</a>
-          <a class="btn btn--outline" href="hazte-socio">Hazte socio</a>
-        </div>
-      </div>
-      <div class="split__media">
-        <img src="assets/images/gatitos-lindos.jpg" alt="Gatitos cuidados gracias a las donaciones" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-      </div>
+<section class="donaciones-contact" id="contactanos" aria-labelledby="donaciones-contact-title">
+  <div class="donaciones-contact__inner">
+    <h2 id="donaciones-contact-title">Contáctanos</h2>
+    <div class="donaciones-contact__details">
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=43.34125%2C-1.78714" target="_blank" rel="noopener">Calle Santiago 27 1º Izq.</a> Irún , 20304</p>
+      <p>nebakadopciones@gmail</p>
     </div>
+    <form class="contact-form donaciones-form" data-contact-form novalidate>
+      <div class="field">
+        <input id="donaciones-form-name" name="nombre" type="text" autocomplete="name" placeholder="Nombre" aria-label="Nombre" required>
+      </div>
+      <div class="field">
+        <input id="donaciones-form-email" name="email" type="email" autocomplete="email" placeholder="Email" aria-label="Email" required>
+      </div>
+      <div class="field">
+        <input id="donaciones-form-subject" name="asunto" type="text" placeholder="Asunto" aria-label="Asunto">
+      </div>
+      <div class="field">
+        <textarea id="donaciones-form-message" name="mensaje" placeholder="Escribe tu mensaje aquí..." aria-label="Mensaje"></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">Enviar</button>
+      <p class="contact-success" hidden>¡Gracias por tu mensaje!</p>
+    </form>
   </div>
 </section>
 </main>

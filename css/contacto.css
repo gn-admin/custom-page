@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Contacto — réplica de gruponebak.net/contacto
+   ========================================================================== */
+
+.page-contacto {
+  background: #ffffff;
+}
+
+/* Bloque principal ------------------------------------------------------- */
+.page-contacto .contacto-main {
+  height: 660px;
+  background: #f7f7f7;
+}
+
+.page-contacto .contacto-main__inner {
+  display: grid;
+  grid-template-columns: 460px 460px;
+  column-gap: 20px;
+  align-items: start;
+  width: 940px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 120px;
+  box-sizing: border-box;
+}
+
+.page-contacto .contacto-info {
+  width: 460px;
+  max-width: 100%;
+  color: #000000;
+}
+
+.page-contacto .contacto-info h1 {
+  margin: 3px 0 0;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 54px;
+  color: #53a142;
+}
+
+.page-contacto .contacto-info p {
+  margin: 32px 0 0;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #000000;
+}
+
+.page-contacto .contacto-info p:first-of-type {
+  margin-top: 30px;
+}
+
+.page-contacto .contacto-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-contacto .contacto-info a:hover,
+.page-contacto .contacto-info a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Formulario ------------------------------------------------------------- */
+.page-contacto .contacto-form {
+  width: 460px;
+  max-width: 100%;
+  height: 412px;
+  margin: 0;
+  padding: 0;
+}
+
+.page-contacto .contacto-form__row {
+  display: grid;
+  grid-template-columns: 225px 225px;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.page-contacto .contacto-form input,
+.page-contacto .contacto-form textarea {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-bottom: 0.8px solid #000000;
+  border-radius: 0;
+  background: transparent;
+  color: #000000;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 28.125px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.page-contacto .contacto-form input {
+  height: 42px;
+  padding: 3px 3px 3px 12px;
+}
+
+.page-contacto .contacto-form textarea {
+  width: 460px;
+  max-width: 100%;
+  height: 126px;
+  min-height: 126px;
+  padding: 11.25px 10px 3px 16px;
+  line-height: 28.125px;
+  resize: none;
+}
+
+.page-contacto .contacto-form > input {
+  width: 460px;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.page-contacto .contacto-form input::placeholder,
+.page-contacto .contacto-form textarea::placeholder {
+  color: #000000;
+  opacity: 1;
+}
+
+.page-contacto .contacto-form button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 460px;
+  max-width: 100%;
+  height: 50px;
+  margin: 37px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.page-contacto .contacto-form button[type="submit"]:hover,
+.page-contacto .contacto-form button[type="submit"]:focus-visible {
+  background: #222222;
+}
+
+.page-contacto .contacto-form .contact-success {
+  margin: 8px 0 0;
+  font-family: "Futura LT Light", "Avenir Next", Avenir, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Mapa ------------------------------------------------------------------- */
+.page-contacto .contacto-map {
+  height: 400px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.page-contacto .contacto-map iframe {
+  display: block;
+  width: 100%;
+  height: 395px;
+  border: 0;
+}
+
+/* Tablet ----------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-contacto .contacto-main {
+    height: auto;
+    padding: 60px 20px 70px;
+  }
+
+  .page-contacto .contacto-main__inner {
+    display: block;
+    width: 100%;
+    max-width: 680px;
+    padding-top: 0;
+  }
+
+  .page-contacto .contacto-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .page-contacto .contacto-info h1 {
+    margin-top: 0;
+  }
+
+  .page-contacto .contacto-info p:first-of-type {
+    margin-top: 26px;
+  }
+
+  .page-contacto .contacto-info p {
+    margin-top: 12px;
+  }
+
+  .page-contacto .contacto-form {
+    width: 460px;
+    height: auto;
+    margin: 38px auto 0;
+  }
+
+  .page-contacto .contacto-map {
+    height: 400px;
+  }
+
+  .page-contacto .contacto-map iframe {
+    height: 395px;
+  }
+}
+
+/* Móvil ------------------------------------------------------------------ */
+@media (max-width: 767px) {
+  .page-contacto .contacto-main {
+    height: auto;
+    padding: 50px 10px 55px;
+  }
+
+  .page-contacto .contacto-main__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 350px;
+    padding-top: 0;
+  }
+
+  .page-contacto .contacto-info {
+    display: contents;
+  }
+
+  .page-contacto .contacto-info h1 {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    font-size: 24px;
+    line-height: 32.4px;
+    text-align: center;
+  }
+
+  .page-contacto .contacto-info p {
+    order: 3;
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .page-contacto .contacto-info p:first-of-type {
+    margin-top: 24px;
+  }
+
+  .page-contacto .contacto-form {
+    order: 2;
+    width: 100%;
+    height: auto;
+    margin: 24px auto 0;
+  }
+
+  .page-contacto .contacto-form__row {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .page-contacto .contacto-form input,
+  .page-contacto .contacto-form textarea,
+  .page-contacto .contacto-form > input,
+  .page-contacto .contacto-form button[type="submit"] {
+    width: 100%;
+  }
+
+  .page-contacto .contacto-form > input {
+    margin-bottom: 10px;
+  }
+
+  .page-contacto .contacto-form textarea {
+    height: 126px;
+  }
+
+  .page-contacto .contacto-form button[type="submit"] {
+    margin-top: 10px;
+  }
+
+  .page-contacto .contacto-map {
+    height: 300px;
+    background: #f7f7f7;
+  }
+
+  .page-contacto .contacto-map iframe {
+    display: none;
+  }
+}

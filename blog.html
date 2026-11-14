@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog | Grupo Nebak</title>
-  <meta name="description" content="Blog de Grupo Nebak: adopciones, acogidas temporales, casos urgentes y noticias de la asociación de animales de Irún.">
+  <meta name="description" content="Eventos | Gatos en Adopción | Perros en Adopción | Adoptados | Blog | Grupo Nebak">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css?v=20261114c">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-blog">
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
 <header class="site-header">
@@ -73,31 +74,39 @@
 
 <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero__inner">
-      
-      <h1>Blog</h1>
-      <p>Adopciones, acogidas, casos urgentes y noticias de Grupo Nebak.</p>
-    </div>
+<h1 class="sr-only">Blog</h1>
+
+<section class="blog-categories" aria-label="Categorías del blog">
+  <div class="blog-shell">
+    <nav class="blog-nav" aria-label="Categorías del blog">
+      <div class="blog-nav__primary">
+        <button class="blog-nav__link is-active" type="button" data-blog-filter="Todas las entradas" aria-pressed="true">Todas las entradas</button>
+        <button class="blog-nav__link" type="button" data-blog-filter="SC" aria-pressed="false">SC</button>
+        <button class="blog-nav__link" type="button" data-blog-filter="Adoptados" aria-pressed="false">Adoptados</button>
+        <button class="blog-nav__link" type="button" data-blog-filter="Eventos" aria-pressed="false">Eventos</button>
+        <button class="blog-nav__link" type="button" data-blog-filter="D.E.P" aria-pressed="false">D.E.P</button>
+        <button class="blog-nav__link" type="button" data-blog-filter="Gatos en adopción" aria-pressed="false">Gatos en adopción</button>
+        <div class="blog-nav__more">
+          <button class="blog-nav__link blog-nav__more-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="blogMoreMenu">Más</button>
+          <div class="blog-nav__menu" id="blogMoreMenu" hidden>
+            <button class="blog-nav__link" type="button" data-blog-filter="Perros en adopción" aria-pressed="false">Perros en adopción</button>
+            <button class="blog-nav__link" type="button" data-blog-filter="Caso externo" aria-pressed="false">Caso externo</button>
+            <button class="blog-nav__link" type="button" data-blog-filter="Acogida" aria-pressed="false">Acogida</button>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="carousel__head">
-      <div>
-        
-        <h2>Últimas publicaciones</h2>
-      </div>
-      <p class="muted" id="blogCount">Cargando…</p>
-    </div>
-
-    <div class="post-grid" id="blogPostsContainer">
+<section class="blog-list-section" aria-label="Entradas del blog">
+  <div class="blog-shell">
+    <div class="blog-list" id="blogPostsContainer">
       <p class="loading-state">Cargando historias…</p>
     </div>
+    <p class="sr-only" data-blog-status role="status" aria-live="polite"></p>
     <noscript>
-      <p class="noscript-note">El listado del blog se genera dinámicamente desde <code>data/blog-posts.json</code>. Activa JavaScript para verlo.</p>
+      <p class="noscript-note">El listado del blog se genera dinámicamente. Activa JavaScript para verlo.</p>
     </noscript>
   </div>
 </section>
@@ -120,8 +129,8 @@
     <p class="footer-copy">©2020 por Nebak Adopciones. Creada con Wix.com</p>
   </div>
 </footer>
-  <script src="js/blog-api.js"></script>
-  <script src="js/blog-render-index.js"></script>
+  <script src="js/blog-api.js?v=20261114a"></script>
+  <script src="js/blog-render-index.js?v=20261114a"></script>
 <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Aviso de cookies" aria-hidden="true">
   <div class="cookie-inner">
     <p class="cookie-text">Utilizamos cookies propias y de terceros para analizar hábitos de navegación y mejorar el contenido. Puedes aceptarlas o configurarlas. Más información en la <a href="politicas-de-cookies">Política de Cookies</a> y la <a href="copia-de-politica-de-cookies">Política de Privacidad</a>.</p>
@@ -157,6 +166,6 @@
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20261114a"></script>
 </body>
 </html>

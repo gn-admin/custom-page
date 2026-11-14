@@ -1,0 +1,566 @@
+/* ==========================================================================
+   Donaciones — réplica de gruponebak.net/donaciones
+   ========================================================================== */
+
+.page-donaciones {
+  background: #fffffe;
+}
+
+/* Hero ------------------------------------------------------------------ */
+.page-donaciones .donaciones-hero {
+  height: 409px;
+  background: #fffffe;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page-donaciones .donaciones-hero__inner {
+  width: 980px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 105px;
+}
+
+.page-donaciones .donaciones-hero h1 {
+  margin: 0;
+  padding-top: 0;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 49px;
+  color: #53a142;
+}
+
+.page-donaciones .donaciones-hero__rule {
+  width: 100px;
+  height: 5px;
+  margin: 26px auto 0;
+  border-top: 2.4px solid #53a142;
+}
+
+.page-donaciones .donaciones-hero__intro {
+  width: 549px;
+  max-width: calc(100% - 40px);
+  margin: 35px auto 0;
+  font-family: "Futura LT Light", "Avenir LT Light", "Avenir Next", Avenir, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: #000000;
+  text-align: center;
+}
+
+/* Cuatro tarjetas ------------------------------------------------------- */
+.page-donaciones .donaciones-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 455px;
+  margin: 0;
+}
+
+.page-donaciones .donation-card {
+  position: relative;
+  height: 455px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page-donaciones .donation-card--account {
+  background: #000000;
+}
+
+.page-donaciones .donation-card--teaming {
+  background: #404040;
+}
+
+.page-donaciones .donation-card--socio {
+  background: #ededed;
+}
+
+.page-donaciones .donation-card--materiales {
+  background: #4bd1a0;
+}
+
+.page-donaciones .donation-card__icon {
+  position: absolute;
+  left: 50%;
+  display: block;
+  transform: translateX(-50%);
+}
+
+.page-donaciones .donation-card--account .donation-card__icon {
+  top: 78px;
+  width: 84px;
+  height: 56px;
+}
+
+.page-donaciones .donation-card--teaming .donation-card__icon {
+  top: 71px;
+  width: 87px;
+  height: 87px;
+}
+
+.page-donaciones .donation-card--socio .donation-card__icon {
+  top: 65px;
+  width: 62px;
+  height: 94px;
+}
+
+.page-donaciones .donation-card--materiales .donation-card__icon {
+  top: 66px;
+  width: 109px;
+  height: 96px;
+}
+
+.page-donaciones .donation-card h2 {
+  position: absolute;
+  top: 191px;
+  left: 35px;
+  right: 35px;
+  margin: 0;
+  font-family: "Lulo Clean One Bold", "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.page-donaciones .donation-card--account h2,
+.page-donaciones .donation-card--materiales h2 {
+  color: #ffffff;
+}
+
+.page-donaciones .donation-card--teaming h2,
+.page-donaciones .donation-card--socio h2 {
+  color: #4bd1a0;
+}
+
+.page-donaciones .donation-card__text {
+  position: absolute;
+  top: 234px;
+  left: 50%;
+  margin: 0;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.page-donaciones .donation-card__text p {
+  margin: 0;
+}
+
+.page-donaciones .donation-card--account .donation-card__text {
+  width: 190px;
+  color: #ffffff;
+}
+
+.page-donaciones .donation-card--teaming .donation-card__text {
+  width: 184px;
+  color: #ffffff;
+}
+
+.page-donaciones .donation-card--socio .donation-card__text {
+  width: 186px;
+  color: #000000;
+}
+
+.page-donaciones .donation-card--materiales .donation-card__text {
+  top: 253px;
+  width: 203px;
+  color: #000000;
+}
+
+.page-donaciones .donation-card__link {
+  position: absolute;
+  top: 363px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 158px;
+  height: 35px;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.page-donaciones .donation-card--teaming .donation-card__link {
+  color: #ffffff;
+}
+
+.page-donaciones .donation-card--socio .donation-card__link,
+.page-donaciones .donation-card--materiales .donation-card__link {
+  color: #000000;
+}
+
+.page-donaciones .donation-card__link:hover,
+.page-donaciones .donation-card__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Contacto -------------------------------------------------------------- */
+.page-donaciones .donaciones-contact {
+  height: 717px;
+  background: #53a142;
+  color: #110a2b;
+  text-align: center;
+}
+
+.page-donaciones .donaciones-contact__inner {
+  width: 980px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 95px;
+}
+
+.page-donaciones .donaciones-contact h2 {
+  position: relative;
+  left: 4px;
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Didot", "Bodoni MT", "Playfair Display", Georgia, serif;
+  font-size: 56px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 70.4px;
+  letter-spacing: 0.15em;
+  color: #221133;
+}
+
+.page-donaciones .donaciones-contact__details {
+  margin-top: 25px;
+  font-family: "Futura LT Light", "Avenir LT Light", "Avenir Next", Avenir, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #110a2b;
+}
+
+.page-donaciones .donaciones-contact__details p {
+  margin: 0;
+}
+
+.page-donaciones .donaciones-contact__details a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-donaciones .donaciones-form.contact-form {
+  position: relative;
+  width: 585px;
+  max-width: 100%;
+  height: 341px;
+  margin: 40px auto 0;
+  padding-top: 14px;
+  text-align: left;
+}
+
+.page-donaciones .donaciones-form .field {
+  width: 460px;
+  max-width: calc(100% - 40px);
+  margin: 0 0 11px 69px;
+}
+
+.page-donaciones .donaciones-form .field:last-of-type {
+  margin-bottom: 0;
+}
+
+.page-donaciones .donaciones-form input,
+.page-donaciones .donaciones-form textarea {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Futura LT Light", "Avenir LT Light", "Avenir Next", Avenir, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  box-shadow: none;
+}
+
+.page-donaciones .donaciones-form input {
+  height: 30px;
+}
+
+.page-donaciones .donaciones-form textarea {
+  height: 127px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 19.6px;
+  resize: none;
+}
+
+.page-donaciones .donaciones-form input::placeholder,
+.page-donaciones .donaciones-form textarea::placeholder {
+  color: #666666;
+  opacity: 1;
+}
+
+.page-donaciones .donaciones-form .btn,
+.page-donaciones .donaciones-form button[type="submit"] {
+  position: absolute;
+  top: 247px;
+  left: calc(50% - 68.5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 149px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Avenir LT Light", "Avenir Next", Avenir, "Futura LT Light", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.page-donaciones .donaciones-form .btn:hover,
+.page-donaciones .donaciones-form .btn:focus-visible {
+  background: #222222;
+}
+
+.page-donaciones .donaciones-form .contact-success {
+  margin: 8px 0 0;
+  color: #000000;
+  font-family: "Futura LT Light", "Avenir Next", Avenir, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Tablet ----------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-donaciones .donaciones-hero {
+    height: 370px;
+    padding: 70px 24px 0;
+  }
+
+  .page-donaciones .donaciones-hero__inner {
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-hero h1 {
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-hero__intro {
+    margin-top: 26px;
+  }
+
+  .page-donaciones .donaciones-options {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+
+  .page-donaciones .donation-card {
+    height: 400px;
+  }
+
+  .page-donaciones .donation-card--account .donation-card__icon,
+  .page-donaciones .donation-card--teaming .donation-card__icon,
+  .page-donaciones .donation-card--socio .donation-card__icon,
+  .page-donaciones .donation-card--materiales .donation-card__icon {
+    top: 50px;
+  }
+
+  .page-donaciones .donation-card h2 {
+    top: 150px;
+  }
+
+  .page-donaciones .donation-card__text,
+  .page-donaciones .donation-card--materiales .donation-card__text {
+    top: 190px;
+  }
+
+  .page-donaciones .donation-card__link {
+    top: 330px;
+  }
+
+  .page-donaciones .donaciones-contact {
+    height: auto;
+    padding: 78px 30px 70px;
+  }
+
+  .page-donaciones .donaciones-contact__inner {
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-contact h2 {
+    left: 0;
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .page-donaciones .donaciones-contact__details {
+    margin-top: 22px;
+  }
+
+  .page-donaciones .donaciones-form.contact-form {
+    height: auto;
+    margin-top: 38px;
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-form .field {
+    margin: 0 auto 11px;
+  }
+
+  .page-donaciones .donaciones-form .btn,
+  .page-donaciones .donaciones-form button[type="submit"] {
+    position: static;
+    margin: 18px auto 0;
+    transform: none;
+  }
+}
+
+/* Móvil ------------------------------------------------------------------ */
+@media (max-width: 767px) {
+  .page-donaciones .donaciones-hero {
+    height: auto;
+    padding: 60px 20px 55px;
+  }
+
+  .page-donaciones .donaciones-hero__inner {
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-hero h1 {
+    padding-top: 0;
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .page-donaciones .donaciones-hero__rule {
+    margin-top: 22px;
+  }
+
+  .page-donaciones .donaciones-hero__intro {
+    width: 100%;
+    max-width: 549px;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .page-donaciones .donaciones-options {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .page-donaciones .donation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 350px;
+    padding: 45px 24px 38px;
+    overflow: visible;
+  }
+
+  .page-donaciones .donation-card--account .donation-card__icon,
+  .page-donaciones .donation-card--teaming .donation-card__icon,
+  .page-donaciones .donation-card--socio .donation-card__icon,
+  .page-donaciones .donation-card--materiales .donation-card__icon {
+    position: static;
+    margin: 0 0 22px;
+    transform: none;
+  }
+
+  .page-donaciones .donation-card h2 {
+    position: static;
+    width: 100%;
+    margin: 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .page-donaciones .donation-card__text,
+  .page-donaciones .donation-card--materiales .donation-card__text {
+    position: static;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 18px;
+    transform: none;
+  }
+
+  .page-donaciones .donation-card__link {
+    position: static;
+    width: 158px;
+    height: auto;
+    margin-top: 26px;
+    transform: none;
+  }
+
+  .page-donaciones .donaciones-contact {
+    height: auto;
+    padding: 65px 20px 60px;
+  }
+
+  .page-donaciones .donaciones-contact__inner {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-contact h2 {
+    left: 0;
+    width: 100%;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.12em;
+  }
+
+  .page-donaciones .donaciones-contact__details {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .page-donaciones .donaciones-form.contact-form {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin-top: 32px;
+    padding-top: 0;
+  }
+
+  .page-donaciones .donaciones-form .field {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 10px;
+  }
+
+  .page-donaciones .donaciones-form input {
+    height: 36px;
+  }
+
+  .page-donaciones .donaciones-form textarea {
+    height: 110px;
+  }
+
+  .page-donaciones .donaciones-form .btn,
+  .page-donaciones .donaciones-form button[type="submit"] {
+    position: static;
+    width: 120px;
+    height: 44px;
+    margin: 18px auto 0;
+    transform: none;
+  }
+}

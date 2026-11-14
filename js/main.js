@@ -177,6 +177,52 @@
   }
 
   /* ----------------------------------------------------------------------
+     Filtro de casos externos
+     ---------------------------------------------------------------------- */
+  var caseFilters = $$('[data-case-filter]');
+  if (caseFilters.length) {
+    var caseCards = $$('[data-case-card]');
+    var caseStatus = $('[data-case-status]');
+    var caseGrid = $('#casosGrid');
+    var caseLabels = { acogida: 'acogida', adopcion: 'adopción' };
+
+    function filterCases(value) {
+      var visible = 0;
+
+      caseCards.forEach(function (card) {
+        var types = String(card.getAttribute('data-case-type') || '').split(/\s+/);
+        var show = value === 'all' || types.indexOf(value) !== -1;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (caseGrid) caseGrid.classList.toggle('is-single', visible === 1);
+
+      caseFilters.forEach(function (button) {
+        var active = button.getAttribute('data-case-filter') === value;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      if (caseStatus) {
+        if (value === 'all') {
+          caseStatus.textContent = 'Mostrando ' + visible + (visible === 1 ? ' caso externo' : ' casos externos');
+        } else {
+          caseStatus.textContent = 'Mostrando ' + visible + (visible === 1 ? ' caso de ' : ' casos de ') + (caseLabels[value] || value);
+        }
+      }
+    }
+
+    caseFilters.forEach(function (button) {
+      button.addEventListener('click', function () {
+        filterCases(button.getAttribute('data-case-filter') || 'all');
+      });
+    });
+
+    filterCases('all');
+  }
+
+  /* ----------------------------------------------------------------------
      Formularios (sitio estático: se simula el envío)
      ---------------------------------------------------------------------- */
   $$('[data-contact-form]').forEach(function (form) {

@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hazte voluntario | Grupo Nebak</title>
-  <meta name="description" content="Hazte voluntario de Grupo Nebak y ayuda con las colonias felinas, los rescates y los traslados al veterinario en Irún.">
+  <title>Hazte socio | Grupo Nebak</title>
+  <meta name="description" content="&quot;Actúa como si todas tus acciones marcaran la diferencia. Lo hacen&quot;.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/socio.css?v=20261114c">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 </head>
 <body class="page-socio">
@@ -108,40 +109,23 @@
 <section class="socio-contact" aria-labelledby="socio-contact-title">
   <div class="socio-contact__inner">
     <h2 id="socio-contact-title">Contáctanos</h2>
-    <p class="socio-contact__address">Calle Santiago 27 1º Izq., Irún, 20304</p>
+    <p class="socio-contact__address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=43.34125%2C-1.78714" target="_blank" rel="noopener">Calle Santiago 27 1º Izq.</a>, Irún, 20304</p>
     <p class="socio-contact__email"><a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
     <form class="contact-form socio-form" data-contact-form novalidate>
-      <div class="form-row">
-        <div class="field">
-          <label for="form-name">Nombre *</label>
-          <input id="form-name" name="nombre" type="text" autocomplete="name" placeholder="Nombre" required>
-        </div>
-        <div class="field">
-          <label for="form-email">Email *</label>
-          <input id="form-email" name="email" type="email" autocomplete="email" placeholder="Email" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="form-phone">Teléfono</label>
-          <input id="form-phone" name="telefono" type="tel" autocomplete="tel" placeholder="Teléfono">
-        </div>
-        <div class="field">
-          <label for="form-address">Dirección</label>
-          <input id="form-address" name="direccion" type="text" autocomplete="street-address" placeholder="Dirección">
-        </div>
+      <div class="field">
+        <input id="form-name" name="nombre" type="text" autocomplete="name" placeholder="Nombre" aria-label="Nombre" required>
       </div>
       <div class="field">
-        <label for="form-subject">Asunto</label>
-        <input id="form-subject" name="asunto" type="text" placeholder="Asunto">
+        <input id="form-email" name="email" type="email" autocomplete="email" placeholder="Email" aria-label="Email" required>
       </div>
       <div class="field">
-        <label for="form-message">Mensaje *</label>
-        <textarea id="form-message" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <input id="form-subject" name="asunto" type="text" placeholder="Asunto" aria-label="Asunto">
       </div>
-      <p class="form__note">Los campos marcados con * son obligatorios. Usaremos tus datos únicamente para responder a tu consulta.</p>
+      <div class="field">
+        <textarea id="form-message" name="mensaje" placeholder="Escribe tu mensaje aquí..." aria-label="Mensaje"></textarea>
+      </div>
       <button class="btn btn--primary" type="submit">Enviar</button>
-      <p class="contact-success" hidden>¡Gracias por tu mensaje! Te responderemos lo antes posible.</p>
+      <p class="contact-success" hidden>¡Gracias por tu mensaje!</p>
     </form>
   </div>
 </section>

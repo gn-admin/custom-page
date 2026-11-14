@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casos externos | Grupo Nebak</title>
-  <meta name="description" content="Casos externos de Grupo Nebak: Horacio y Fender y Taylor, animales que necesitan difusión para encontrar acogida o adopción.">
+  <title>Casos Externos | Grupo Nebak</title>
+  <meta name="description" content="Aquí tenemos los animalitos que hemos ayudado a tener una nueva oportunidad">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/casos-externos.css?v=20261114c">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-casos">
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
 <header class="site-header">
@@ -73,105 +74,63 @@
 
 <main id="main">
 
-<section class="page-hero">
+<section class="casos-hero" aria-labelledby="casos-title">
   <div class="container">
-    <div class="page-hero__inner">
-      
-      <h1>Casos externos</h1>
-      <p>Animales que no están en nuestras instalaciones pero que necesitan difusión y una oportunidad.</p>
+    <div class="casos-hero__inner">
+      <h1 id="casos-title">Casos Externos</h1>
+      <hr class="casos-rule" aria-hidden="true">
+      <p>Aquí tenemos los animalitos que no depende de nosotras pero que necesitan ayuda para poder ser adoptados.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="casos-list" aria-label="Casos externos">
   <div class="container">
-    <div class="section-head">
-      
-      <h2>Casos que llegan de fuera</h2>
-      <p class="lead">A veces nos llegan casos de personas que no saben a quién acudir. Nuestro papel es orientar, difundir y buscar la mejor solución posible.</p>
-    </div>
-
-    <div class="animal-grid">
-      <article class="animal-card">
-        <div class="animal-card__media">
-          <img src="assets/images/horacio.webp" alt="Horacio, caso externo en busca de acogida" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-          
-        </div>
-        <div class="animal-card__body">
-          <h2>Horacio - Acogida</h2>
-          
-          <p>Horacio necesita una acogida que le dé estabilidad mientras se busca su adopción definitiva. Es un caso externo: no está en nuestras instalaciones, pero ayudamos a difundirlo y a orientar a quienes pueden ayudarle.</p>
-          <ul class="check-list">
-            <li>Se busca acogida temporal.</li>
-            <li>Compartir el caso también ayuda muchísimo.</li>
-          </ul>
-          <a class="link-arrow" href="post?slug=horacio">Ver el caso completo</a>
-        </div>
-      </article>
-
-      <article class="animal-card">
-        <div class="animal-card__media">
-          <img src="assets/images/fender-taylor.webp" alt="Fender y Taylor, caso externo en busca de adopción" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-          
-        </div>
-        <div class="animal-card__body">
-          <h2>Fender y Taylor</h2>
-          
-          <p>Fender y Taylor son dos animalitos de un caso externo que necesitan ayuda para encontrar hogar. Llegaron juntos y juntos esperan una segunda oportunidad.</p>
-          <ul class="check-list">
-            <li>Se busca adopción responsable.</li>
-            <li>Escríbenos para conocer los detalles del caso.</li>
-          </ul>
-          <a class="link-arrow" href="post?slug=fender-y-taylor">Ver el caso completo</a>
-        </div>
-      </article>
-    </div>
-
-    <p class="note section-foot"><strong>¿Por qué son casos externos?</strong> No todos los animales que difundimos están bajo nuestra custodia. En estos casos, informamos y acompañamos, pero la responsabilidad del animal corresponde a quien nos pide ayuda.</p>
-  </div>
-</section>
-
-<section class="section section--tight">
-  <div class="container">
-    <div class="callout">
-      <div class="callout__body">
-        <h2>Difundir también es adoptar</h2>
-        <p>Comparte estos casos en tus redes. Una publicación puede ser el primer paso para encontrar una familia.</p>
+    <div class="casos-toolbar">
+      <p class="casos-toolbar__label" id="casosFilterLabel">Filtrar por tipo</p>
+      <div class="casos-filter" role="group" aria-labelledby="casosFilterLabel">
+        <button class="casos-filter__btn is-active" type="button" data-case-filter="all" aria-pressed="true" aria-controls="casosGrid" aria-label="Todos los casos, 2">
+          Todos <span class="casos-filter__count" aria-hidden="true">2</span>
+        </button>
+        <button class="casos-filter__btn" type="button" data-case-filter="acogida" aria-pressed="false" aria-controls="casosGrid" aria-label="Acogida, 2 casos">
+          Acogida <span class="casos-filter__count" aria-hidden="true">2</span>
+        </button>
+        <button class="casos-filter__btn" type="button" data-case-filter="adopcion" aria-pressed="false" aria-controls="casosGrid" aria-label="Adopción, 1 caso">
+          Adopción <span class="casos-filter__count" aria-hidden="true">1</span>
+        </button>
       </div>
-      <a class="btn btn--light" href="contacto">Contactar</a>
     </div>
+
+    <div class="casos-grid" id="casosGrid">
+      <article class="caso-card" data-case-card data-case-type="acogida">
+        <a class="caso-card__link" href="post?slug=horacio">
+          <img src="assets/images/horacio.webp" alt="Horacio - Acogida" width="454" height="454" loading="eager" decoding="async">
+          <span class="caso-card__shade" aria-hidden="true"></span>
+          <div class="caso-card__content">
+            <p class="caso-card__kind">Perro · Acogida</p>
+            <h2>Horacio - Acogida</h2>
+            <p class="caso-card__meta">1 min de lectura</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="caso-card" data-case-card data-case-type="acogida adopcion">
+        <a class="caso-card__link" href="post?slug=fender-y-taylor">
+          <img src="assets/images/fender-taylor.webp" alt="Fender y Taylor" width="454" height="454" loading="eager" decoding="async">
+          <span class="caso-card__shade" aria-hidden="true"></span>
+          <div class="caso-card__content">
+            <p class="caso-card__kind">Gatos · Acogida / Adopción</p>
+            <h2>Fender y Taylor</h2>
+            <p class="caso-card__meta">1 min de lectura</p>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <p class="casos-status" data-case-status role="status" aria-live="polite">Mostrando 2 casos externos</p>
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2>Más casos externos</h2>
-      <p class="lead">Casos que llegan a la asociación y necesitan difusión para encontrar hogar.</p>
-    </div>
-    <div class="animal-grid">
-      <article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/dos-cachorros.webp" alt="Dos cachorros que buscan hogar" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Dos cachorros</h2>
-    <p>Dos cachorros que necesitan ayuda para encontrar un hogar.</p>
-    <a class="link-arrow" href="contacto">Ayudar con su adopción</a>
-  </div>
-</article>
-<article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/polo.webp" alt="Polo, caso externo en adopción" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Polo</h2>
-    <p>Caso externo que busca una adopción responsable.</p>
-    <a class="link-arrow" href="contacto">Preguntar por Polo</a>
-  </div>
-</article>
-    </div>
-  </div>
-</section>
+
 </main>
 
 <footer class="site-footer">
@@ -226,6 +185,6 @@
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20261114c"></script>
 </body>
 </html>

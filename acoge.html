@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Acoge | Casas de acogida de Grupo Nebak</title>
-  <meta name="description" content="Una casa de acogida puede ser la diferencia entre la vida y la muerte para muchos gatos. Descubre la acogida temporal de Grupo Nebak.">
+  <title>Acoge | Grupo Nebak</title>
+  <meta name="description" content="Una casa de acogida puede ser la diferencia entre la vida y la muerte para muchos gatos.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/acoge.css?v=20261114d">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 </head>
 <body class="page-acoge">
@@ -74,73 +75,48 @@
 <main id="main">
 
 <section class="acoge-hero" aria-labelledby="acoge-title">
-  <div class="acoge-hero__content">
+  <div class="acoge-hero__inner">
     <h1 id="acoge-title">Acoge</h1>
     <div class="acoge-hero__rule" aria-hidden="true"></div>
     <p class="acoge-hero__quote">Una casa de acogida puede ser la diferencia entre la vida y la muerte para muchos gatos.</p>
   </div>
-  <div class="acoge-hero__media">
-    <img src="assets/images/gatitos-lindos.jpg" alt="Dos gatitos acogidos en una casa" width="900" height="650">
-  </div>
 </section>
 
-<section class="acoge-story" aria-labelledby="acoge-story-title">
-  <div class="container acoge-story__inner">
-    <div class="acoge-story__content">
-      <h2 id="acoge-story-title">Las acogidas son diferentes dependiendo de la edad, salud y caracter del gato.</h2>
-      <p>Las casas de acogida se hacen cargo de la alimentacion del gato bajo su cargo, pero los gastos veterinarios corren a cargo de nosotras, siempre avisando antes de llevarlo para dirigiros a los que colaboran con nosotras.</p>
-    </div>
-    <figure class="acoge-story__media">
-      <img src="assets/images/acoge-img.jpg" alt="Gato en una casa de acogida" width="900" height="600" loading="lazy">
-    </figure>
-  </div>
+<section class="acoge-media" aria-label="Gato acogido en una casa">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/images/acoge-video.jpg" aria-label="Vídeo de un gato acogido">
+    <source src="assets/videos/acoge.mp4" type="video/mp4">
+  </video>
 </section>
 
-<section class="acoge-commitment" aria-label="Compromiso de la acogida">
-  <div class="acoge-commitment__inner">
-    <p>Por supuesto, hacerse casa de acogida debe ser una decision meditada, pero siempre tendras la libertad de decidir hasta cuando puedes seguir siendolo. Tu lo acogeras y cuidaras durante un tiempo, pero la custodia del gato seguira siendo de la protectora.</p>
-    <p>En el caso de adopcion, la casa de acogida siempre tendra preferencia a la hora de adoptar al gato acogido.</p>
-    <blockquote>Aunque meditada, la acogida es un compromiso temporal.</blockquote>
+<section class="acoge-copy" aria-label="Información sobre las acogidas">
+  <div class="acoge-copy__inner">
+    <p>Las acogidas son diferentes dependiendo de la edad, salud y caracter del gato. Las casas de acogida se hacen cargo de la alimentacion del gato bajo su cargo, pero los gastos veterinarios corren a cargo de nosotras, siempre avisando antes de llevarlo para dirigiros a los que colaboran con nosotras.</p>
+    <p class="acoge-copy__blank" aria-hidden="true">&#8203;</p>
+    <p class="acoge-copy__blank" aria-hidden="true">&#8203;</p>
+    <p>Por supuesto, hacerse casa de acogida debe ser una decision meditada, pero siempre tendras la libertad de decidir hasta cuando puedes seguir siendolo. Tu lo acogeras y cuidaras durante un tiempo, pero la custodia del gato seguira siendo de la protectora. En el caso de adopcion, la casa de acogida siempre tendra preferencia a la hora de adoptar al gato acogido. Aunque meditada, la acogida es un compromiso temporal.</p>
   </div>
 </section>
 
 <section class="acoge-contact" aria-labelledby="acoge-contact-title">
   <div class="acoge-contact__inner">
     <h2 id="acoge-contact-title">Contáctanos</h2>
-    <p class="acoge-contact__address">Calle Santiago 27 1º Izq., Irún, 20304</p>
+    <p class="acoge-contact__address"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=43.34125%2C-1.78714" target="_blank" rel="noopener">Calle Santiago 27 1º Izq.</a>, Irún, 20304</p>
     <p class="acoge-contact__email"><a href="mailto:nebakadopciones@gmail.com">nebakadopciones@gmail.com</a></p>
     <form class="contact-form acoge-form" data-contact-form novalidate>
-      <div class="form-row">
-        <div class="field">
-          <label for="acoge-form-name">Nombre *</label>
-          <input id="acoge-form-name" name="nombre" type="text" autocomplete="name" placeholder="Nombre" required>
-        </div>
-        <div class="field">
-          <label for="acoge-form-email">Email *</label>
-          <input id="acoge-form-email" name="email" type="email" autocomplete="email" placeholder="Email" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="acoge-form-phone">Teléfono</label>
-          <input id="acoge-form-phone" name="telefono" type="tel" autocomplete="tel" placeholder="Teléfono">
-        </div>
-        <div class="field">
-          <label for="acoge-form-address">Dirección</label>
-          <input id="acoge-form-address" name="direccion" type="text" autocomplete="street-address" placeholder="Dirección">
-        </div>
+      <div class="field">
+        <input id="acoge-form-name" name="nombre" type="text" autocomplete="name" placeholder="Nombre" aria-label="Nombre" required>
       </div>
       <div class="field">
-        <label for="acoge-form-subject">Asunto</label>
-        <input id="acoge-form-subject" name="asunto" type="text" placeholder="Asunto">
+        <input id="acoge-form-email" name="email" type="email" autocomplete="email" placeholder="Email" aria-label="Email" required>
       </div>
       <div class="field">
-        <label for="acoge-form-message">Mensaje *</label>
-        <textarea id="acoge-form-message" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <input id="acoge-form-subject" name="asunto" type="text" placeholder="Asunto" aria-label="Asunto">
       </div>
-      <p class="form__note">Los campos marcados con * son obligatorios. Usaremos tus datos únicamente para responder a tu consulta.</p>
+      <div class="field">
+        <textarea id="acoge-form-message" name="mensaje" placeholder="Escribe tu mensaje aquí..." aria-label="Mensaje"></textarea>
+      </div>
       <button class="btn btn--primary" type="submit">Enviar</button>
-      <p class="contact-success" hidden>¡Gracias por tu mensaje! Te responderemos lo antes posible.</p>
+      <p class="contact-success" hidden>¡Gracias por tu mensaje!</p>
     </form>
   </div>
 </section>

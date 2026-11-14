@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adoptados | Grupo Nebak</title>
-  <meta name="description" content="Finales felices de Grupo Nebak: Tara y Shiva, dos perras que encontraron una familia gracias a la adopción responsable.">
+  <meta name="description" content="Finales felices de Grupo Nebak: los animales que encontraron una familia gracias a la adopción responsable.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261114f">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="page-adoptados">
@@ -71,116 +71,118 @@
   </ul>
 </aside>
 
-<main id="main">
-
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero__inner">
-      
-      <h1>Adoptados</h1>
-      <p>Historias que terminaron bien. Estos animales ya han encontrado su familia.</p>
-    </div>
+<main id="main" class="feed-main">
+<svg class="feed-icon-set" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4V4Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 4.65-7 9-7 9Z"/></symbol>
+</svg>
+<section class="feed-hero">
+  <div class="feed-hero__inner">
+    <h1>Adoptados</h1>
+    <span class="feed-hero__rule" aria-hidden="true"></span>
+    <p>Aquí tenemos los animalitos que hemos ayudado a tener una nueva oportunidad</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      
-      <h2>Ya tienen hogar</h2>
-      <p class="lead">Cada adopción es un motivo para seguir trabajando. Gracias a las familias que confiaron en ellos.</p>
-    </div>
-
-    <div class="animal-grid">
-      <article class="animal-card">
-        <div class="animal-card__media">
-          <img src="assets/images/tara.webp" alt="Tara, perrita pequeña adoptada en Donostia" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-          
-        </div>
-        <div class="animal-card__body">
-          <h2>Tara</h2>
-          
-          <p>Tara es una perrita pequeña, vacunada, al día y esterilizada. Muy sociable, cariñosa y acostumbrada a los niños; solo era un poquito miedosa, pero nada agresiva. Necesitaba un hogar urgente porque su anterior dueño no podía atenderla por motivos de salud.</p>
-          <p><strong>Hoy Tara ya tiene familia.</strong> Gracias a quienes la difundieron y a quienes le dieron una segunda oportunidad.</p>
-        </div>
-      </article>
-
-      <article class="animal-card">
-        <div class="animal-card__media">
-          <img src="assets/images/shiva.webp" alt="Shiva, perra adoptada" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-          
-        </div>
-        <div class="animal-card__body">
-          <h2>Shiva</h2>
-          
-          <p>Shiva nació el 20 de agosto de 2021. Estaba vacunada, con chip y pasaporte, y esterilizada. Era una perra muy cariñosa, dócil y tranquila, que no ladraba ni de noche ni de día y se adaptaba con facilidad a las personas y a otros perros.</p>
-          <p><strong>Shiva también encontró su familia.</strong> Su carácter noble conquistó a quienes la conocieron.</p>
-        </div>
-      </article>
-    </div>
+<section class="feed-section">
+  <div class="feed-grid" aria-live="polite">
+      <a class="feed-card" href="post?slug=tara-perrita-pequena-donostia" aria-label="Tara">
+        <img src="assets/images/tara.webp" alt="Tara" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Tara</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>594</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="3 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=shiva" aria-label="Shiva">
+        <img src="assets/images/shiva.webp" alt="Shiva" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Shiva</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>471</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="7 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=kala_persa" aria-label="Kala">
+        <img src="assets/images/kala.webp" alt="Kala" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Kala</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>149</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="2 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=pitxin" aria-label="Pitxin">
+        <img src="assets/images/pitxin.webp" alt="Pitxin" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Pitxin</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>75</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="1 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=pichurri" aria-label="Pichurri">
+        <img src="assets/images/pichurri.webp" alt="Pichurri" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Pichurri</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>42</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="0 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=luci-willie" aria-label="Luci y Willie">
+        <img src="assets/images/luci-willie.webp" alt="Luci y Willie" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Luci y Willie</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>174</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="2 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=vilma-siames" aria-label="Vilma">
+        <img src="assets/images/adoptados/vilma.webp" alt="Vilma" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Vilma</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>192</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="2 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
+      <a class="feed-card" href="post?slug=alfri-border-collie" aria-label="Alfri">
+        <img src="assets/images/adoptados/alfri.webp" alt="Alfri" loading="lazy">
+        <span class="feed-card__top">1 min de lectura</span>
+        <h2 class="feed-card__title">Alfri</h2>
+        <span class="feed-card__rule" aria-hidden="true"></span>
+        <span class="feed-card__bottom">
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-eye"></use></svg><span>30</span></span>
+          <span class="feed-stat"><svg class="feed-icon" aria-hidden="true"><use href="#i-comment"></use></svg><span>0</span></span>
+          <span class="feed-like" aria-label="0 Me gusta"><svg class="feed-icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+        </span>
+      </a>
   </div>
-</section>
-
-<section class="section section--tight">
-  <div class="container">
-    <div class="callout">
-      <div class="callout__body">
-        <h2>La próxima historia puede ser la tuya</h2>
-        <p>Hay muchos animales esperando. Mira las fichas de adopción y acogida y encuentra a tu compañero.</p>
-      </div>
-      <a class="btn btn--light" href="adopciones">Ver adopciones</a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2>Más finales felices</h2>
-      <p class="lead">Animales que encontraron su familia y hoy viven en un hogar.</p>
-    </div>
-    <div class="animal-grid">
-      <article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/kala.webp" alt="Kala, perra adoptada" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Kala</h2>
-    <p>Adoptada. Su historia tuvo un final feliz.</p>
-    
-  </div>
-</article>
-<article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/pitxin.webp" alt="Pitxin, perro adoptado" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Pitxin</h2>
-    <p>Adoptado. Gracias a su familia por darle una segunda oportunidad.</p>
-    
-  </div>
-</article>
-<article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/pichurri.webp" alt="Pichurri, perro adoptado" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Pichurri</h2>
-    <p>Adoptado. Hoy disfruta de su hogar definitivo.</p>
-    
-  </div>
-</article>
-<article class="animal-card">
-  <div class="animal-card__media">
-    <img src="assets/images/luci-willie.webp" alt="Luci y Willie, adoptados juntos" loading="lazy" onerror="this.onerror=null;this.src='assets/images/logo.jpg'">
-  </div>
-  <div class="animal-card__body">
-    <h2>Luci y Willie</h2>
-    <p>Luci y Willie fueron adoptados juntos.</p>
-    
-  </div>
-</article>
-    </div>
-  </div>
+      <nav class="feed-pagination" aria-label="Páginas de adoptados">
+        <a class="is-current" href="adoptados" aria-current="page" data-page="1">1</a>
+        <a href="adoptados?page=2" data-page="2">2</a>
+        <a href="adoptados?page=3" data-page="3">3</a>
+        <a href="adoptados?page=4" data-page="4">4</a>
+        <a href="adoptados?page=5" data-page="5">5</a>
+      </nav>
 </section>
 </main>
 
@@ -237,5 +239,6 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="js/main.js"></script>
+<script src="js/adoptados.js"></script>
 </body>
 </html>
