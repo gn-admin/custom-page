@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/blog.css?v=20261114c">
+  <link rel="stylesheet" href="css/blog.css?v=20261114f">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="page-blog">
@@ -78,6 +78,29 @@
 
 <section class="blog-categories" aria-label="Categorías del blog">
   <div class="blog-shell">
+    <div class="blog-mobile-head">
+      <span class="blog-mobile-head__title" aria-hidden="true">Blog</span>
+      <button class="blog-search-toggle blog-search-toggle--mobile" type="button" data-blog-search-toggle aria-label="Buscar en el blog" aria-expanded="false" aria-controls="blogSearchPanel">
+        <svg viewBox="0 0 19 19" width="19" height="19" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12.2 12.2 16.5 16.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="blog-category-select-wrap">
+      <label class="sr-only" for="blogCategorySelect">Categoría del blog</label>
+      <select class="blog-category-select" id="blogCategorySelect">
+        <option value="Todas las entradas">Todas las entradas</option>
+        <option value="SC">SC</option>
+        <option value="Adoptados">Adoptados</option>
+        <option value="Eventos">Eventos</option>
+        <option value="D.E.P">D.E.P</option>
+        <option value="Gatos en adopción">Gatos en adopción</option>
+        <option value="Perros en adopción">Perros en adopción</option>
+        <option value="Caso externo">Caso externo</option>
+        <option value="Acogida">Acogida</option>
+      </select>
+      <svg class="blog-category-select__caret" viewBox="0 0 19 19" width="19" height="19" aria-hidden="true" focusable="false"><path d="M5.5 7.4 9.5 11.4 13.5 7.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
     <nav class="blog-nav" aria-label="Categorías del blog">
       <div class="blog-nav__primary">
         <button class="blog-nav__link is-active" type="button" data-blog-filter="Todas las entradas" aria-pressed="true">Todas las entradas</button>
@@ -87,7 +110,7 @@
         <button class="blog-nav__link" type="button" data-blog-filter="D.E.P" aria-pressed="false">D.E.P</button>
         <button class="blog-nav__link" type="button" data-blog-filter="Gatos en adopción" aria-pressed="false">Gatos en adopción</button>
         <div class="blog-nav__more">
-          <button class="blog-nav__link blog-nav__more-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="blogMoreMenu">Más</button>
+          <button class="blog-nav__link blog-nav__more-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="blogMoreMenu">Más<svg class="blog-nav__caret" viewBox="0 0 19 19" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5.5 7.4 9.5 11.4 13.5 7.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="blog-nav__menu" id="blogMoreMenu" hidden>
             <button class="blog-nav__link" type="button" data-blog-filter="Perros en adopción" aria-pressed="false">Perros en adopción</button>
             <button class="blog-nav__link" type="button" data-blog-filter="Caso externo" aria-pressed="false">Caso externo</button>
@@ -95,7 +118,16 @@
           </div>
         </div>
       </div>
+      <button class="blog-search-toggle blog-search-toggle--desktop" type="button" data-blog-search-toggle aria-label="Buscar en el blog" aria-expanded="false" aria-controls="blogSearchPanel">
+        <svg viewBox="0 0 19 19" width="19" height="19" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12.2 12.2 16.5 16.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
     </nav>
+
+    <div class="blog-search-panel" id="blogSearchPanel" hidden>
+      <label class="sr-only" for="blogSearchInput">Buscar en el blog</label>
+      <input class="blog-search-input" id="blogSearchInput" type="search" placeholder="Buscar en el blog" autocomplete="off">
+      <button class="blog-search-close" type="button" data-blog-search-close aria-label="Cerrar búsqueda">&times;</button>
+    </div>
   </div>
 </section>
 
@@ -130,7 +162,7 @@
   </div>
 </footer>
   <script src="js/blog-api.js?v=20261114a"></script>
-  <script src="js/blog-render-index.js?v=20261114a"></script>
+  <script src="js/blog-render-index.js?v=20261114f"></script>
 <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Aviso de cookies" aria-hidden="true">
   <div class="cookie-inner">
     <p class="cookie-text">Utilizamos cookies propias y de terceros para analizar hábitos de navegación y mejorar el contenido. Puedes aceptarlas o configurarlas. Más información en la <a href="politicas-de-cookies">Política de Cookies</a> y la <a href="copia-de-politica-de-cookies">Política de Privacidad</a>.</p>

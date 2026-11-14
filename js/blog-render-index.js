@@ -93,14 +93,34 @@
   /* ----------------------------------------------------------------------
      Blog: filas del listado real
      ---------------------------------------------------------------------- */
+  var ICON_EYE = '<svg class="blog-entry__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M12 5.2C6.9 5.2 2.6 9.5 1.6 12c1 2.5 5.3 6.8 10.4 6.8s9.4-4.3 10.4-6.8c-1-2.5-5.3-6.8-10.4-6.8Z" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
+    '<circle cx="12" cy="12" r="2.9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>';
+
+  var ICON_COMMENT = '<svg class="blog-entry__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M4 4.8h16v11.6H9.3L4 20.4V4.8Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+
+  var ICON_DOTS = '<svg viewBox="0 0 19 19" aria-hidden="true" focusable="false">' +
+    '<circle cx="9.5" cy="4" r="1.7" fill="currentColor"/>' +
+    '<circle cx="9.5" cy="9.5" r="1.7" fill="currentColor"/>' +
+    '<circle cx="9.5" cy="15" r="1.7" fill="currentColor"/></svg>';
+
+  var ICON_HEART = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M12 20.3 4.3 12.6a4.7 4.7 0 0 1 6.6-6.7l1.1 1.1 1.1-1.1a4.7 4.7 0 1 1 6.6 6.7Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+
   function blogRowMarkup(post) {
     var url = postUrl(post.slug);
     var image = post.image || 'assets/images/logo.jpg';
     var alt = escapeHtml(post.imageAlt || post.title || '');
-    var meta = [post.dateFormatted, post.readTime].filter(Boolean).join(' · ');
-    var likes = Number(post.likes || 0);
+    var date = post.dateFormatted || post.date || '';
+    var read = post.readTime || '';
     var comments = Number(post.comments || 0);
     var views = Number(post.views || 0);
+    var meta = '';
+
+    if (date) meta += '<span>' + escapeHtml(date) + '</span>';
+    if (date && read) meta += '<span class="blog-entry__dot" aria-hidden="true">&middot;</span>';
+    if (read) meta += '<span>' + escapeHtml(read) + '</span>';
 
     return '' +
       '<article class="blog-entry">' +
@@ -111,17 +131,24 @@
         '<div class="blog-entry__body">' +
           '<div class="blog-entry__byline">' +
             '<img class="blog-entry__avatar" src="assets/images/logo.jpg" alt="" width="32" height="32" loading="lazy">' +
-            '<div>' +
+            '<div class="blog-entry__byline-text">' +
               '<span class="blog-entry__author">' + escapeHtml(post.author || 'gruponebak') + '</span>' +
-              '<span class="blog-entry__meta">' + escapeHtml(meta) + '</span>' +
+              '<span class="blog-entry__meta">' + meta + '</span>' +
             '</div>' +
+            '<button class="blog-entry__more" type="button" aria-label="Compartir esta entrada" data-blog-share="' + escapeHtml(url) + '">' + ICON_DOTS + '</button>' +
           '</div>' +
           '<h2><a class="blog-entry__link" href="' + url + '">' + escapeHtml(post.title) + '</a></h2>' +
           '<p class="blog-entry__excerpt">' + escapeHtml(post.excerpt || '') + '</p>' +
           '<div class="blog-entry__footer">' +
-            '<span>' + escapeHtml(countLabel(views, 'visualización', 'visualizaciones')) + '</span>' +
-            '<span>' + escapeHtml(countLabel(comments, 'comentario', 'comentarios')) + '</span>' +
-            (likes > 0 ? '<span class="blog-entry__likes" aria-label="' + likes + ' me gusta">♥ ' + likes + '</span>' : '') +
+            '<span class="blog-entry__stat">' + ICON_EYE +
+              '<span class="blog-entry__stat-num">' + views + '</span>' +
+              '<span class="blog-entry__stat-label">' + (views === 1 ? 'visualización' : 'visualizaciones') + '</span>' +
+            '</span>' +
+            '<span class="blog-entry__stat">' + ICON_COMMENT +
+              '<span class="blog-entry__stat-num">' + comments + '</span>' +
+              '<span class="blog-entry__stat-label">' + (comments === 1 ? 'comentario' : 'comentarios') + '</span>' +
+            '</span>' +
+            '<button class="blog-entry__like" type="button" aria-label="Me gusta" aria-pressed="false" data-blog-like>' + ICON_HEART + '</button>' +
           '</div>' +
         '</div>' +
       '</article>';
@@ -136,7 +163,40 @@
     var more = document.querySelector('.blog-nav__more');
     var moreToggle = document.querySelector('.blog-nav__more-toggle');
     var moreMenu = document.getElementById('blogMoreMenu');
+    var categorySelect = document.getElementById('blogCategorySelect');
+    var searchToggles = Array.prototype.slice.call(document.querySelectorAll('[data-blog-search-toggle]'));
+    var searchPanel = document.getElementById('blogSearchPanel');
+    var searchInput = document.getElementById('blogSearchInput');
+    var searchClose = document.querySelector('[data-blog-search-close]');
     var posts = [];
+    var activeFilter = 'Todas las entradas';
+
+    function toast(message) {
+      if (window.NebakUI && typeof window.NebakUI.showToast === 'function') {
+        window.NebakUI.showToast(message);
+      }
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try {
+        document.execCommand('copy');
+      } catch (error) {
+        /* sin soporte de portapapeles */
+      }
+      document.body.removeChild(area);
+      return Promise.resolve();
+    }
 
     function setMoreOpen(open) {
       if (!moreToggle || !moreMenu) return;
@@ -145,11 +205,17 @@
     }
 
     function setActive(value) {
+      activeFilter = value;
+
       filters.forEach(function (button) {
         var active = button.getAttribute('data-blog-filter') === value;
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
+
+      if (categorySelect && categorySelect.value !== value) {
+        categorySelect.value = value;
+      }
 
       if (moreToggle) {
         var extraActive = filters.some(function (button) {
@@ -161,9 +227,21 @@
     }
 
     function renderFilter(value) {
+      var query = searchInput ? searchInput.value.replace(/\s+/g, ' ').trim().toLowerCase() : '';
+
       var visible = posts.filter(function (post) {
-        if (value === 'Todas las entradas') return post.listed !== false;
-        return post.category === value;
+        if (value === 'Todas las entradas') {
+          if (post.listed === false) return false;
+        } else if (post.category !== value) {
+          return false;
+        }
+
+        if (!query) return true;
+
+        var haystack = [post.title, post.excerpt, post.category, post.author]
+          .join(' ')
+          .toLowerCase();
+        return haystack.indexOf(query) !== -1;
       });
 
       visible.sort(function (a, b) {
@@ -172,7 +250,9 @@
 
       container.innerHTML = visible.length
         ? visible.map(blogRowMarkup).join('')
-        : '<p class="blog-empty">No hay entradas en esta categoría.</p>';
+        : '<p class="blog-empty">' + (query
+            ? 'No hay entradas que coincidan con tu búsqueda.'
+            : 'No hay entradas en esta categoría.') + '</p>';
 
       setActive(value);
       setMoreOpen(false);
@@ -180,8 +260,28 @@
       if (status) {
         status.textContent = 'Mostrando ' + visible.length +
           (visible.length === 1 ? ' entrada' : ' entradas') +
-          (value === 'Todas las entradas' ? '.' : ' en ' + value + '.');
+          (value === 'Todas las entradas' ? '' : ' en ' + value) +
+          (query ? ' para "' + query + '".' : '.');
       }
+    }
+
+    function setSearchOpen(open) {
+      if (!searchPanel || !searchToggles.length) return;
+
+      searchPanel.hidden = !open;
+      searchToggles.forEach(function (button) {
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      if (open) {
+        if (searchInput) {
+          window.setTimeout(function () { searchInput.focus(); }, 0);
+        }
+        return;
+      }
+
+      if (searchInput) searchInput.value = '';
+      renderFilter(activeFilter);
     }
 
     if (moreToggle && moreMenu) {
@@ -194,16 +294,62 @@
       document.addEventListener('click', function (event) {
         if (!more || !more.contains(event.target)) setMoreOpen(false);
       });
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') setMoreOpen(false);
-      });
     }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      setMoreOpen(false);
+      if (searchPanel && !searchPanel.hidden) setSearchOpen(false);
+    });
 
     filters.forEach(function (button) {
       button.addEventListener('click', function () {
         renderFilter(button.getAttribute('data-blog-filter') || 'Todas las entradas');
       });
+    });
+
+    if (categorySelect) {
+      categorySelect.addEventListener('change', function () {
+        renderFilter(categorySelect.value);
+      });
+    }
+
+    searchToggles.forEach(function (button) {
+      button.addEventListener('click', function () {
+        setSearchOpen(Boolean(searchPanel && searchPanel.hidden));
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        renderFilter(activeFilter);
+      });
+    }
+
+    if (searchClose) {
+      searchClose.addEventListener('click', function () {
+        setSearchOpen(false);
+      });
+    }
+
+    container.addEventListener('click', function (event) {
+      var target = event.target;
+
+      var shareButton = target && target.closest ? target.closest('[data-blog-share]') : null;
+      if (shareButton) {
+        event.preventDefault();
+        var shareUrl = new URL(shareButton.getAttribute('data-blog-share'), window.location.href).href;
+        copyText(shareUrl).then(function () {
+          toast('Enlace copiado al portapapeles.');
+        });
+        return;
+      }
+
+      var likeButton = target && target.closest ? target.closest('[data-blog-like]') : null;
+      if (likeButton) {
+        var active = likeButton.classList.toggle('is-active');
+        likeButton.setAttribute('aria-pressed', active ? 'true' : 'false');
+      }
     });
 
     fetch(BLOG_LIST_URL, { cache: 'no-cache' })
