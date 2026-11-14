@@ -230,10 +230,13 @@
       var query = searchInput ? searchInput.value.replace(/\s+/g, ' ').trim().toLowerCase() : '';
 
       var visible = posts.filter(function (post) {
+        if (!post) return false;
+
         if (value === 'Todas las entradas') {
           if (post.listed === false) return false;
-        } else if (post.category !== value) {
-          return false;
+        } else {
+          var postCategory = String(post.category || '').replace(/\s+/g, ' ').trim();
+          if (postCategory !== value) return false;
         }
 
         if (!query) return true;
@@ -243,6 +246,10 @@
           .toLowerCase();
         return haystack.indexOf(query) !== -1;
       });
+
+      if (!visible.length && value === 'Todas las entradas' && !query && posts.length) {
+        visible = posts.filter(function (post) { return post && post.listed !== false; });
+      }
 
       visible.sort(function (a, b) {
         return (a.order || 999) - (b.order || 999);
@@ -352,13 +359,13 @@
       }
     });
 
-    fetch(BLOG_LIST_URL, { cache: 'no-cache' })
+    fetch(BLOG_LIST_URL, { cache: 'no-store' })
       .then(function (response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(function (data) {
-        posts = data && Array.isArray(data.posts) ? data.posts : [];
+        posts = Array.isArray(data) ? data : (data && Array.isArray(data.posts) ? data.posts : []);
         renderFilter('Todas las entradas');
       })
       .catch(function (error) {
